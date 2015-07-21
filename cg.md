@@ -17,3 +17,49 @@ var t = "some code goes here."
 
 ここが[独自記法](http://example.com)だとするとですね
 ```
+
+```codegrid:note
+[title]
+たいとる
+[body]
+本文ほげほげ
+```
+
+```cg:note
+# たいとる
+
+本文ほげほげ
+```
+
+```cg:column
+# たいとる
+
+本文ほげほげ
+
+![alt](http://www.test.com/hoge.jpg)
+
+```
+
+```cg:imgbox
+# たいとる
+
+本文ほげほげ
+
+![alt](http://www.test.com/hoge.jpg)
+```
+
+```cg:demo
+# たいとる
+
+本文ほげほげ
+
+![click-L](http://demo/index.html)
+```
+
+
+
+```cg:jade
+.Note
+  .Note-title たいとる
+  .Note-body 本文ほげほげ
+```
