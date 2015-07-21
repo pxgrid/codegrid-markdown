@@ -1,34 +1,20 @@
 # hoge
 this is __test__ texts.
 
+この`md`がきれいにパースできれば、それなりに動いてるのでは！
+
 ```javascript
 var t = "some code goes here."
 ```
 
 ```
-ただの囲い
-```
-
-```codegrid:note
-[title]
-*注：Jekyll 1.0へのアップデートによる変更
-[body]
-そうです
-
-ここが[独自記法](http://example.com)だとするとですね
-```
-
-```codegrid:note
-[title]
-たいとる
-[body]
-本文ほげほげ
+これはただの囲い
 ```
 
 ```cg:note
 # たいとる
 
-本文ほげほげ
+本文ほげほげ[リンク](#foo)も書けるよ。
 ```
 
 ```cg:column
@@ -51,15 +37,7 @@ var t = "some code goes here."
 ```cg:demo
 # たいとる
 
-本文ほげほげ
-
-![click-L](http://demo/index.html)
-```
-
-```cg:demo
-# たいとる
-
-本文ほげほげ
+iframeだけはタグをそのまま書くことになりそう。
 
 <iframe src="http://demo/index.html" data-trigger class="SizeL"></iframe>
 ```
