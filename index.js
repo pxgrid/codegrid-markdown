@@ -1,98 +1,60 @@
 'use strict';
+var util = require('util');
 
-var marked       = require('marked');
-var htmlPipeline = require('html-pipeline');
-var jsdom        = require('jsdom');
+var marked   = require('marked');
+var renderer = new marked.Renderer();
 
-var CodeGridMarkdown = module.exports = function() {};
+var CodeGridMarkdown = module.exports = function(options) {
+  return this._initialize.call(this, options);
+};
 
-var $document = null;
-var codegridLangRe = /^lang-codegrid: ?(\w+)$/;
+var codeRenderer = {
+  note: function(code) {
+    return '<div class="Note">' + marked(code) + '</div>';
+  },
+  column: function() {
+    return '<div>columnだよ</div>';
+  },
+  imgbox: function() {
+    return '<div>imgboxだよ</div>';
+  },
+  demo: function() {
+    return '<div>demoだよ</div>';
+  },
+  jade: function() {
+    return '<div>jadeだよ</div>';
+  },
+  orig: marked.Renderer.prototype.code
+};
 
-var renderer = {
-  note: function(token) {
+renderer.code = function(code, lang) {
+  var cgLang = /^cg: ?(\w+)$/.exec(lang);
+  var renderer = null;
 
-    var contentArr = token.content.split(/\n?\[\w+\]\n/);
-
-    var title = contentArr[1].trim();
-    var body  = marked(contentArr[2].trim());
-
-    var div = $document.createElement('div');
-    // TODO: テンプレから取りたい
-    var html  = '<div class="Note">';
-        html +=   '<div class="Note-title">' + title + '</div>';
-        html +=   '<div class="Note-body">' + body + '</div>';
-        html += '</div>';
-    div.innerHTML = html;
-
-    return div.firstChild;
+  // cg:foo な独自ブロックではないcodeブロック
+  if (cgLang === null) {
+    renderer = codeRenderer['orig'];
   }
+  // cg:foo な独自ブロックで、定義もされてるやつ
+  else if (cgLang[1] in codeRenderer) {
+    renderer = codeRenderer[cgLang[1]];
+  }
+  // cg:foo な独自ブロックだが、定義されてないやつ
+  else {
+    renderer = codeRenderer['orig'];
+  }
+
+  return renderer.apply(this, arguments);
 };
 
 
-CodeGridMarkdown.prototype = {
-  // Public
-  render: render,
-
-  // Private
-  _isParseCandidate: _isParseCandidate,
-  _getToken:         _getToken,
-  // - Filters
-  _customTagFilter: _customTagFilter
-};
-
-
-function render(str) {
-  var that = this;
-  return new Promise(function(resolve, reject) {
-    try {
-      var htmlStr = marked(str);
-      jsdom.env(htmlStr, function (err, window) {
-        if (err) { reject(err); }
-        $document = window.document;
-        var res = htmlPipeline($document)
-                    .pipe(that._customTagFilter.bind(that))
-                    .run($document.body);
-
-        resolve(res.innerHTML);
-      });
-    } catch (e) { reject(e); }
+CodeGridMarkdown.prototype._initialize = function(options) {
+  // TODO: _extendをなんか別のに
+  this._options = util._extend(options, {
+    renderer: renderer
   });
-}
-
-function _isParseCandidate(el) {
-  if (el.nodeName !== 'PRE') {
-    return false;
-  }
-  if (el.childNodes.length === 0) {
-    return false;
-  }
-  if (el.firstChild.nodeName !== 'CODE') {
-    return false;
-  }
-  if (codegridLangRe.exec(el.firstChild.className) === null) {
-    return false;
-  }
-
-  return true;
-}
-
-function _getToken(el) {
-  var type = codegridLangRe.exec(el.firstChild.className)[1];
-  var content = el.firstChild.innerHTML;
-
-  return {
-    type:    type,
-    content: content
-  };
-}
-
-function _customTagFilter(el) {
-  if (!this._isParseCandidate(el)) { return undefined; }
-  var token = this._getToken(el);
-
-  var type = token.type;
-  if (type in renderer) {
-    return renderer[type](token);
-  }
-}
+  return this;
+};
+CodeGridMarkdown.prototype.render = function(str) {
+  return marked(str, this._options);
+};
