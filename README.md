@@ -5,6 +5,11 @@ CodeGrid-specified markdown processor.
 
 - - -
 
+## 試す
+```sh
+npm i && npm run example
+```
+
 ## 方針
 
 ```
