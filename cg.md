@@ -56,7 +56,13 @@ var t = "some code goes here."
 ![click-L](http://demo/index.html)
 ```
 
+```cg:demo
+# たいとる
 
+本文ほげほげ
+
+<iframe src="http://demo/index.html" data-trigger class="SizeL"></iframe>
+```
 
 ```cg:jade
 .Note
