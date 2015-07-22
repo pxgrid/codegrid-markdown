@@ -35,8 +35,7 @@ Markdownのパースを経ても独自記法をそのままに保つためには
 本文ほげほげ
 
 [リンク](#foo)も書けるよ。
-```
-</pre>
+```</pre>
 
 最終的なアウトプットは、現状のマークアップから少し変更になるが、Markdownらしく書ける。
 
@@ -60,47 +59,42 @@ Markdownのパースを経ても独自記法をそのままに保つためには
 - etc..
 
 ### 注釈
-```
-"```cg:note
+<pre>
+```cg:note
 # タイトル
 あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら・・・
-```"
-```
+```</pre>
 
 ### コラム
-```
-"```cg:column
+<pre>
+```cg:column
 # タイトル
 あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら・・・
-```"
-```
+```</pre>
 
 ### 画像ボックス
-```
-"```cg:imgbox
+<pre>
+```cg:imgbox
 # タイトル
 あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら・・・
 ![sample](http://i.giphy.com/Hc8PMCBjo9BXa.gif)
-```"
-```
+```</pre>
 
 ### iframeデモ
-```
-"```cg:demo
+<pre>
+```cg:demo
 # タイトル
 あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら・・・
 <iframe data-trigger="data-trigger" src="" class="sizeM"></iframe>
-```"
-```
+```</pre>
 
 ### jade
-```
-"```cg:jade
+<pre>
+```cg:jade
 .Masaka
   .Konnna_koto_mo
   .Dekiru_nannte
-```"
-```
+```</pre>
 
 ## 参考
 - [CodeGridモジュール集](https://staging-codegrid.herokuapp.com/entry/jade-samples)
