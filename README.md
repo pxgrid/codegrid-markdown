@@ -3,14 +3,27 @@ CodeGrid-specified markdown processor.
 
 の、予定地
 
+## TODOs
+- [ ] こんな感じでいいか確認
+- [ ] READMEの精査
+- [ ] テストかく
+- [ ] npm publishするならそれ用にいろいろ
+
 - - -
 
-## 試す
+## まず試すなら
 ```sh
 npm i && npm run example
 ```
 
 ## 方針
+注釈やコラムなど、CodeGrid独自記法をMarkdownで書けるようにする。
+
+`marked`の`Lexar`まで拡張すれば、Markdown自体に文法を追加することもできるが、それはしない。(本体コードに手を入れればできそうではあるけども・・)
+
+あくまで、Markdownの既存記法を拡張して実現したい。
+
+よって、以下のように`code`ブロックを利用して拡張する。
 
 ```
 "```cg:note
@@ -20,11 +33,11 @@ npm i && npm run example
 [リンク](#foo)も書けるよ。
 ```"
 ```
-(`"`はパースされないように付けただけで本当は不要)
+(最初と最後の`"`はパースされないように付けただけで本当は不要)
 
-最終的なアウトプットは、現状のマークアップから少し変更になるが、Markdownらしく書けるように。
+最終的なアウトプットは、現状のマークアップから少し変更になるが、Markdownらしく書ける。
 
-このサンプルが、
+ちなみにこのサンプルは以下のようになる。
 
 ```html
 <div class="Note">
@@ -33,13 +46,15 @@ npm i && npm run example
 </div>
 ```
 
-こうなる。
-
 
 ## 書式サンプル
 ### 基本
 基本的に、[GFM](https://help.github.com/articles/github-flavored-markdown)が使えます。
 それにくわえて、以下のCodeGrid用モジュールが使えます。
+
+- Table
+- Raw HTML
+- etc..
 
 ### 注釈
 ```
@@ -75,6 +90,14 @@ npm i && npm run example
 ```"
 ```
 
+### jade
+```
+"```cg:jade
+.Masaka
+  .Konnna_koto_mo
+  .Dekiru_nannte
+```"
+```
 
 ## 参考
 - [CodeGridモジュール集](https://staging-codegrid.herokuapp.com/entry/jade-samples)
