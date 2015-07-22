@@ -45,18 +45,36 @@ npm i && npm run example
 ```
 "```cg:note
 # タイトル
-あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波
+あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら・・・
 ```"
 ```
 
 ### コラム
-wip
+```
+"```cg:column
+# タイトル
+あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら・・・
+```"
+```
 
 ### 画像ボックス
-wip
+```
+"```cg:imgbox
+# タイトル
+あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら・・・
+![sample](http://i.giphy.com/Hc8PMCBjo9BXa.gif)
+```"
+```
 
 ### iframeデモ
-wip
+```
+"```cg:demo
+# タイトル
+あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら・・・
+<iframe data-trigger="data-trigger" src="" class="sizeM"></iframe>
+```"
+```
+
 
 ## 参考
 - [CodeGridモジュール集](https://staging-codegrid.herokuapp.com/entry/jade-samples)
