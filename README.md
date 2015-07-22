@@ -4,7 +4,8 @@ CodeGrid-specified markdown processor.
 の、予定地
 
 ## TODOs
-- [ ] こんな感じでいいか確認
+- [x] こんな感じでいいか確認
+- [ ] コードレビューしてもらう
 - [ ] READMEの精査
 - [ ] テストかく
 - [ ] npm publishするならそれ用にいろいろ
