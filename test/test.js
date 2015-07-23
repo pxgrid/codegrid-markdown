@@ -1,16 +1,35 @@
 'use strict';
-var assert = require('power-assert');
+var fs               = require('fs');
+var assert           = require('power-assert');
+var CodeGridMarkdown = require('../index');
 
-describe('サンプルテスト', function() {
-  it('テスト項目: 1', function() {
-    assert(1 + 1, 2);
+describe('#constructor', function() {
+  it('newしなくてもエラーにならない', function() {
+    assert.doesNotThrow(function() { CodeGridMarkdown(); });
   });
-  it('テスト項目: 2', function() {
-    assert.notDeepEqual({ a: 1 }, { a: 1, b: 2 });
-  });
-  it('テスト項目: 3', function() {
-    var zero = 0, two = 2;
-    var arr = [1, 2, 3];
-    assert(arr.indexOf(zero) === two);
+
+  var testMd = '# Hi, this is test';
+  it('newしてもしなくても動作は同じ', function() {
+    var cgmd1 = CodeGridMarkdown();
+    var cgmd2 = new CodeGridMarkdown();
+    assert.equal(cgmd1.render(testMd), cgmd2.render(testMd));
   });
 });
+
+describe('#render', function() {
+  var cgmd = new CodeGridMarkdown();
+
+  it('cg:note', function() {
+    var noteMd   = fs.readFileSync(__dirname + '/fixture/note.md', 'utf-8');
+    var noteHTML = fs.readFileSync(__dirname + '/fixture/note.html', 'utf-8');
+    assert.equal(_trimSpace(cgmd.render(noteMd)), _trimSpace(noteHTML));
+  });
+});
+
+
+
+
+function _trimSpace(str) {
+  return str.replace(/\s{2,}/g, '')
+            .replace(/\n/g, '');
+}
