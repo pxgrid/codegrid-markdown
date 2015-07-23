@@ -5,9 +5,9 @@ CodeGrid-specified markdown processor.
 
 ## TODOs
 - [x] こんな感じでいいか確認
-- [ ] コードレビューしてもらう
+- [x] コードレビューしてもらう
+- [x] テストかく
 - [ ] READMEの精査
-- [ ] テストかく
 - [ ] npm publishするならそれ用にいろいろ
 
 - - -
