@@ -1,7 +1,7 @@
 'use strict';
 var fs               = require('fs');
 var assert           = require('power-assert');
-var CodeGridMarkdown = require('../index');
+var CodeGridMarkdown = require('../');
 
 describe('#constructor', function() {
   it('newしなくてもエラーにならない', function() {

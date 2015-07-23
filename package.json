@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "CodeGrid-specified markdown processor.",
   "private": "true",
-  "main": "index.js",
+  "main": "lib/index.js",
   "dependencies": {
     "jade": "^1.11.0",
     "marked": "^0.3.3",
