@@ -8,6 +8,7 @@ CodeGrid-specified markdown processor.
 - [x] コードレビューしてもらう
 - [x] テストかく
 - [ ] READMEの精査
+- [ ] CLI対応
 - [ ] npm publishするならそれ用にいろいろ
 
 - - -
