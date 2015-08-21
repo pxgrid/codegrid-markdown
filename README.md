@@ -1,21 +1,24 @@
 # codegrid-markdown
 CodeGrid-specified markdown processor.
 
-の、予定地
-
 ## TODOs
+- [ ] npm publishするならそれ用にいろいろ
 - [x] こんな感じでいいか確認
 - [x] コードレビューしてもらう
 - [x] テストかく
-- [ ] READMEの精査
-- [ ] CLI対応
-- [ ] npm publishするならそれ用にいろいろ
+- [x] CLI対応
 
 - - -
 
 ## まず試すなら
 ```sh
-npm i && npm run example
+npm i
+
+# コード版
+npm run example
+
+# CLI版
+node ./bin/cgmd.js ./example/cg.md
 ```
 
 ## なりたち

@@ -1,6 +1,6 @@
 'use strict';
 var fs               = require('fs');
-var CodeGridMarkdown = require('../index');
+var CodeGridMarkdown = require('../lib/index');
 
 var CGMDRenderer = new CodeGridMarkdown({
   // options for marked
