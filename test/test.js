@@ -59,6 +59,11 @@ describe('#render', function() {
     var jadeHTML = fs.readFileSync(__dirname + '/fixture/jade.html', 'utf-8');
     assert.equal(_trimSpace(cgmd.render(jadeMd)), _trimSpace(jadeHTML));
   });
+  it('cg:code', function() {
+    var codeMd   = fs.readFileSync(__dirname + '/fixture/code.md', 'utf-8');
+    var codeHTML = fs.readFileSync(__dirname + '/fixture/code.html', 'utf-8');
+    assert.equal(_trimSpace(cgmd.render(codeMd)), _trimSpace(codeHTML));
+  });
 });
 
 
