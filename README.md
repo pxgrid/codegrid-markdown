@@ -104,6 +104,8 @@ Markdownのパースを経ても独自記法をそのままに保つためには
 
 一行目が#で始まっていたら、それがタイトルになる。
 
+> `cg:code:` のように中途半端な指定をすると、CodeGridMarkdownとして認識されないので注意
+
 <pre>
 ```cg:code:html
 # sample.html
