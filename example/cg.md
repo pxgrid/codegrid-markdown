@@ -61,3 +61,13 @@ iframeだけはタグをそのまま書くことになりそう。
   .Note-title たいとる
   .Note-body 本文ほげほげ
 ```
+
+```cg:code:hbs
+# Handlebarsのコードです
+<div class="entry">
+  <h1>{{title}}</h1>
+  <div class="body">
+    {{body}}
+  </div>
+</div>
+```

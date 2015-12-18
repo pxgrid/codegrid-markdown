@@ -100,5 +100,20 @@ Markdownのパースを経ても独自記法をそのままに保つためには
   .Dekiru_nannte
 ```</pre>
 
+### コードブロック
+
+一行目が#で始まっていたら、それがタイトルになる。
+
+<pre>
+```cg:code:html
+# sample.html
+<div>this is sample</div>
+```</pre>
+
+<pre>
+```cg:code:html
+<div>this is sample</div>
+```</pre>
+
 ## 参考
 - [CodeGridモジュール集](https://staging-codegrid.herokuapp.com/entry/jade-samples)
