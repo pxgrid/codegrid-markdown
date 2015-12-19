@@ -3,13 +3,18 @@ var fs               = require('fs');
 var assert           = require('power-assert');
 var CodeGridMarkdown = require('../');
 
+describe('CodeGridMarkdownのテスト', function() {
+
+
 describe('#constructor', function() {
   it('newしなくてもエラーにならない', function() {
+    /* jshint newcap: false */
     assert.doesNotThrow(function() { CodeGridMarkdown(); });
   });
 
   var testMd = '# Hi, this is test';
   it('newしてもしなくても動作は同じ', function() {
+    /* jshint newcap: false */
     var cgmd1 = CodeGridMarkdown();
     var cgmd2 = new CodeGridMarkdown();
     assert.equal(cgmd1.render(testMd), cgmd2.render(testMd));
@@ -59,12 +64,18 @@ describe('#render', function() {
     var jadeHTML = fs.readFileSync(__dirname + '/fixture/jade.html', 'utf-8');
     assert.equal(_trimSpace(cgmd.render(jadeMd)), _trimSpace(jadeHTML));
   });
+  it('cg:code', function() {
+    var codeMd   = fs.readFileSync(__dirname + '/fixture/code.md', 'utf-8');
+    var codeHTML = fs.readFileSync(__dirname + '/fixture/code.html', 'utf-8');
+    assert.equal(_trimSpace(cgmd.render(codeMd)), _trimSpace(codeHTML));
+  });
 });
-
-
 
 
 function _trimSpace(str) {
   return str.replace(/\s{2,}/g, '')
             .replace(/\n/g, '');
 }
+
+
+});
