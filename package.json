@@ -1,6 +1,6 @@
 {
   "name": "codegrid-markdown",
-  "version": "0.0.0",
+  "version": "1.0.1",
   "description": "CodeGrid-specified markdown processor.",
   "private": "true",
   "main": "lib/index.js",
@@ -25,7 +25,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pxgrid/codegrid-markdown.git"
+    "url": "git@github.com:pxgrid/codegrid-markdown.git"
   },
   "keywords": [
     "markdown"
