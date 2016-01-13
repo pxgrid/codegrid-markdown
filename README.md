@@ -10,7 +10,7 @@ CodeGrid-specified markdown processor.
 ```
 
 ### Node
-```
+```javascript
 var CodeGridMarkdown = require('codegrid-markdown');
 
 var CGMDRenderer = new CodeGridMarkdown({
