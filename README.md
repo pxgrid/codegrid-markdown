@@ -5,8 +5,7 @@ CodeGrid-specified markdown processor.
 ### Install
 
 ```sh
-# TODO:
-# npm i codegrid-markdown
+npm i codegrid-markdown
 ```
 
 ### Node
@@ -24,8 +23,10 @@ var htmlStr = CGMDRenderer.render(str);
 ### CLI
 ```sh
 cgmd ./path/to/your.md
-```
 
+# or
+cgmd ./path/to/your.md -o ./path/to/your.html
+```
 
 ## サンプル
 
