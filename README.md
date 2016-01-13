@@ -48,13 +48,7 @@ cgmd ./path/to/your.md
 
 
 ## 機能
-### 基本
-基本的に、[GFM](https://help.github.com/articles/github-flavored-markdown)が使えます。
-それにくわえて、以下のCodeGrid用モジュールが使えます。
-
-- Table
-- Raw HTML
-- etc..
+基本的に、[GFM](https://help.github.com/articles/github-flavored-markdown)が使えるほか、以下のCodeGrid用モジュールが使えます。
 
 ### 注釈
 <pre>
