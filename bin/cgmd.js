@@ -16,7 +16,12 @@ var argv = require('yargs')
 var inputPath  = argv._[0];
 var outputPath = argv.o || null;
 
-var inputStr = fs.readFileSync(inputPath, { encoding: 'utf8' });
+var inputStr = '';
+try {
+  inputStr = fs.readFileSync(inputPath, { encoding: 'utf8' });
+} catch(e) {
+  inputStr = inputPath;
+}
 var htmlStr = CGMDRenderer.render(inputStr);
 
 if (outputPath) {
