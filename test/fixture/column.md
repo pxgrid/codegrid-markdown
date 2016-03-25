@@ -1,4 +1,4 @@
-```cg:column
+[cg:column]
 # Column title
 Body goes here
-```
+[/cg]
