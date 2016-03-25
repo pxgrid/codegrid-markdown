@@ -95,3 +95,14 @@ Grid Layout Moduleの理解を深めるには、そこに登場する用語を�
 ```html
 <div>escape?</div>
 ```
+
+[cg:column]
+# コラム
+もしIE10
+
+```css
+.nested-code-block {
+  in: the-cg-colum;
+}
+```
+[/cg]
