@@ -2,22 +2,22 @@
 
 グリッド・カラムレイアウトといえば、以前紹介したFlexible Box（[そこが知りたい、Flexible Box](https://app.codegrid.net/entry/flexiblebox-1)）や`display:table;`を利用したマルチカラムレイアウト（[第1回 display: tableの活用 1](https://app.codegrid.net/entry/css-table-1)）などがあります。また、CodeGridではまだ紹介していませんが、[CSS Multi-column Layout Module](https://www.w3.org/TR/css3-multicol/#columns)もマルチカラムレイアウトをする上で重要です。
 
-[cg:note]
+[note]
 # *注：Flexible Boxやマルチカラムレイアウト
 CodeGridでは以下の記事で紹介しました。
 - 「[そこが知りたい、Flexible Box](https://app.codegrid.net/series/2015-css-flexiblebox)」シリーズ
 - 「[第1回 display: tableの活用 1](https://app.codegrid.net/entry/css-table-1)」
-[/cg]
+[/note]
 
 
 ## 何ができるのか
 
 Grid Layout Moduleでは、CSS上でレイアウト情報を定義することができます。`display: grid;`が指定された親要素にグリッドレイアウト情報を定義し、その子要素では、そのグリッドのどこに配置されるかを定義します。table要素を利用したテーブルレイアウトと似たように思えますが、table要素がHTML側でレイアウト構造を指定することに対し、Grid Layout ModuleではCSS側で、どのようなレイアウト構造にするかを指定します。
 
-[cg:imgbox]
+[imgbox]
 # ゲーム画面のレイアウト
 ![](https://s3-ap-northeast-1.amazonaws.com/codegrid/2016-display-grid/img/img01.png)
-[/cg]
+[/imgbox]
 
 広い画面と狭い画面でレイアウトを変更しています。これをGrid Layout Moduleを使い、実現します。
 
@@ -49,12 +49,12 @@ Grid Layout Moduleでは、CSS上でレイアウト情報を定義すること�
 
 たったこれだけで、HTMLの構造からは想像しづらいレイアウトを実現することができます。このデモを新しいウィンドウで開き、ウィンドウサイズを変化させてみると、レイアウトが変更されることを確認できるはずです。
 
-[cg:demo]
+[demo]
 # display: gridを利用したレイアウト
 <iframe src="https://s3-ap-northeast-1.amazonaws.com/codegrid/2016-display-grid/demo/1/index.html" data-trigger></iframe>
-[/cg]
+[/demo]
 
-[cg:column]
+[column]
 # コラム：古いシンタックスと最新のシンタックス
 もしIE10以降やEdgeにも対応したい場合は、Autoprefixerを併用することをおすすめします。この記事の執筆中にAutoprefixerのバージョンが上がり（[6.3 “Pro rege et lege”](https://github.com/postcss/autoprefixer/releases/tag/6.3.0)）、最新の仕様に沿った記述をすれば、IE用の記述にも対応ができます。ですが、すべてのGrid Layout Moduleに関するプロパティが古い仕様に対応しているわけではないので注意が必要です。
 
@@ -63,7 +63,7 @@ Grid Layout Moduleでは、CSS上でレイアウト情報を定義すること�
   in: the-cg-colum;
 }
 ```
-[/cg]
+[/column]
 
 
 ## Grid Layout Moduleに登場する用語
@@ -96,7 +96,7 @@ Grid Layout Moduleの理解を深めるには、そこに登場する用語を�
 <div>escape?</div>
 ```
 
-[cg:column]
+[column]
 # コラム
 もしIE10
 
@@ -105,4 +105,4 @@ Grid Layout Moduleの理解を深めるには、そこに登場する用語を�
   in: the-cg-colum;
 }
 ```
-[/cg]
+[/column]
