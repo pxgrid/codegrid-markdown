@@ -20,7 +20,7 @@ describe('#tokenize', function() {
   });
 
   it('cgmdとしてトークン化', function() {
-    var tokens = Tokenizer.tokenize('[cg:note]\n# This is cg markdown.\n[/cg]');
+    var tokens = Tokenizer.tokenize('[note]\n# This is cg markdown.\n[/note]');
     assert.equal(tokens.length, 1);
     assert(tokens[0].isTypeCGMD());
   });
@@ -28,7 +28,7 @@ describe('#tokenize', function() {
   it('あわせてトークン化', function() {
     var tokens = Tokenizer.tokenize([
       '# This is normal markdown.\n',
-      '[cg:note]\n# This is cg markdown.\n[/cg]',
+      '[note]\n# This is cg markdown.\n[/note]',
       '# This is normal markdown too.\n'
     ].join('\n'));
     assert.equal(tokens.length, 3);
@@ -39,7 +39,7 @@ describe('#tokenize', function() {
 
   it('cgmdとじ忘れはエラー', function() {
     assert.throws(function() {
-      Tokenizer.tokenize('[cg:note]\n# Forgot closing!');
+      Tokenizer.tokenize('[demo]\n# Forgot closing!');
     });
   });
 });

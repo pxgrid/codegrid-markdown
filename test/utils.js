@@ -21,33 +21,5 @@ describe('#inherits', function() {
   });
 });
 
-describe('#captureAllRe', function() {
-  it('パースできること', function() {
-    var reStr = '(?:\:([a-z]+))';
-    var str   = '[cg:foo:bar:baz]';
-    var res = utils.captureAllRe(reStr, str);
-
-    assert.equal(res[0], 'foo');
-    assert.equal(res[1], 'bar');
-    assert.equal(res[2], 'baz');
-  });
-
-  it('パースできない場合は空配列', function() {
-    var reStr = '(?:\:([a-z]+))';
-    var str   = '[cg;foo;bar;baz]';
-    var res = utils.captureAllRe(reStr, str);
-
-    assert.deepEqual(res, []);
-  });
-
-  it('パースできない場合は空配列', function() {
-    var reStr = 'foo';
-    var str   = 'hogehogehoge';
-    var res = utils.captureAllRe(reStr, str);
-
-    assert.deepEqual(res, []);
-  });
-});
-
 
 });
