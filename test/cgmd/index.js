@@ -1,9 +1,8 @@
 'use strict';
-// var fs               = require('fs');
 var assert           = require('power-assert');
-var CodeGridMarkdown = require('../');
+var CodeGridMarkdown = require('../../');
 
-describe('CodeGridMarkdownのテスト', function() {
+describe('CodeGridMarkdown', function() {
 
 
 describe('#constructor', function() {
@@ -12,8 +11,8 @@ describe('#constructor', function() {
     assert.doesNotThrow(function() { CodeGridMarkdown(); });
   });
 
-  var testMd = '# Hi, this is test';
   it('newしてもしなくても動作は同じ', function() {
+    var testMd = '# Hi, this is test';
     /* jshint newcap: false */
     var cgmd1 = CodeGridMarkdown();
     var cgmd2 = new CodeGridMarkdown();
@@ -21,6 +20,19 @@ describe('#constructor', function() {
   });
 
   it('markedにオプションが渡せる', function() {
+    var original = '<img>';
+    var expect = '<p>&lt;img&gt;</p>\n';
+
+    var cgmd = new CodeGridMarkdown({ sanitize: true });
+    assert.equal(cgmd.render(original), expect);
+  });
+});
+
+describe('#render', function() {
+  it('空文字投げてもエラーにならない', function() {
+    var cgmd = new CodeGridMarkdown();
+    assert.doesNotThrow(function() { cgmd.render(); });
+    assert.doesNotThrow(function() { cgmd.render(''); });
   });
 });
 
