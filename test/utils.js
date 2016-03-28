@@ -2,27 +2,50 @@
 var assert = require('power-assert');
 var utils = require('../lib/utils');
 
-describe('utilsのテスト', function() {
+describe('utils', function() {
 
 
-describe('#escapeHtml', function() {
-  var html = '<div id="id">TEST&TEST</div>';
-  var escaped = '&lt;div id=&quot;id&quot;&gt;TEST&amp;TEST&lt;/div&gt;';
+describe('#inherits', function() {
+  function C() {}
+  C.prototype.foo = function() { return 'foo'; };
+  function S() {}
+  S.prototype.bar = function() { return 'bar'; };
+  utils.inherits(C, S);
+  var c = new C();
 
-  it('エスケープされること', function() {
-    assert.equal(utils.escapeHtml(html), escaped);
+  it('ちゃんと継承できてること', function() {
+    assert.equal(c.bar(), 'bar');
   });
-  it('XXX: エスケープされること・・？(第二引数の意味がいまいちわかってない)', function() {
-    assert.equal(utils.escapeHtml(html, true), escaped);
+  it('子のprototypeが残ってること', function() {
+    assert.equal(c.foo(), 'foo');
   });
 });
 
-describe('#getCodeBodyWithCustomCodeRenderer', function() {
-  var md = '```html\n<div id="id">TEST&TEST</div>\n```';
-  var str = '<pre class="code html">&lt;div id=&quot;id&quot;&gt;TEST&amp;TEST&lt;/div&gt;\n</pre>\n';
+describe('#captureAllRe', function() {
+  it('パースできること', function() {
+    var reStr = '(?:\:([a-z]+))';
+    var str   = '[cg:foo:bar:baz]';
+    var res = utils.captureAllRe(reStr, str);
 
-  it('独自のpreコードブロックがパースされること', function() {
-    assert.equal(utils.getCodeBodyWithCustomCodeRenderer(md), str);
+    assert.equal(res[0], 'foo');
+    assert.equal(res[1], 'bar');
+    assert.equal(res[2], 'baz');
+  });
+
+  it('パースできない場合は空配列', function() {
+    var reStr = '(?:\:([a-z]+))';
+    var str   = '[cg;foo;bar;baz]';
+    var res = utils.captureAllRe(reStr, str);
+
+    assert.deepEqual(res, []);
+  });
+
+  it('パースできない場合は空配列', function() {
+    var reStr = 'foo';
+    var str   = 'hogehogehoge';
+    var res = utils.captureAllRe(reStr, str);
+
+    assert.deepEqual(res, []);
   });
 });
 
