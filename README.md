@@ -28,7 +28,7 @@ cgmd ./path/to/your.md
 cgmd ./path/to/your.md -o ./path/to/your.html
 
 # can also
-cgmd # foo
+cgmd '# foo'
 ```
 
 ## 記法
@@ -38,9 +38,7 @@ cgmd # foo
 
 この2パターンの拡張があります。
 
-まずはcgmdパターン。
-
-通常のMarkdownの中に混ぜて書くことができ、`[foo]通常のMarkdownテキスト[/foo]`の形式で記述します。
+cgmdパターンは、通常のMarkdownの中に混ぜて書くことができ、`[foo]通常のMarkdownテキスト[/foo]`の形式で記述します。
 
 ### cgmd#note
 
@@ -153,7 +151,7 @@ p またの名をpugとも言う
 ```
 </pre>
 
-GFMのコードブロックで、Syntaxを指定する部分をこのようにすると、以下が出力されます。
+GFMのコードブロックで、Syntaxに続けて`#コードのタイトル`を指定すると、以下が出力されます。
 
 ```html
 <div class="Code">
@@ -165,6 +163,8 @@ GFMのコードブロックで、Syntaxを指定する部分をこのように�
   </div>
 </div>
 ```
+
+コードのタイトル指定がない場合、通常のMarkdownのコードブロックとして処理されます。
 
 ## LICENSE
 MIT
