@@ -70,7 +70,6 @@ GFMのコードブロックで、Syntaxを指定する部分を以下のよう�
 
 すると、以下が出力されます。
 
-<pre>
 ```html
 <div class="Code">
   <div class="Code__title">素敵なdiv</div>
@@ -79,7 +78,6 @@ GFMのコードブロックで、Syntaxを指定する部分を以下のよう�
   </div>
 </div>
 ```
-</pre>
 
 
 ## LICENSE
