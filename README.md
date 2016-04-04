@@ -60,7 +60,26 @@ wip
 
 ### md#code
 
-wip
+GFMのコードブロックで、Syntaxを指定する部分を以下のようにできます。
+
+<pre>
+```html#素敵なdiv
+<div></div>
+```
+</pre>
+
+すると、以下が出力されます。
+
+<pre>
+```html
+<div class="Code">
+  <div class="Code__title">素敵なdiv</div>
+  <div class="Code__body">
+    &lt;div&gt;&lt;/div&gt;
+  </div>
+</div>
+```
+</pre>
 
 
 ## LICENSE
