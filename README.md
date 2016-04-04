@@ -40,23 +40,55 @@ cgmd # foo
 
 まずはcgmdパターン。
 
+通常のMarkdownの中に混ぜて書くことができ、`[foo]通常のMarkdownテキスト[/foo]`の形式で記述します。
+
 ### cgmd#note
-wip
+
+```
+[note]
+# 注釈タイトル
+
+注釈本文
+[/note]
+```
+
+↓
+
+```html
+<div class="Note">
+  <h1 id="-">注釈タイトル</h1>
+  <p>注釈本文</p>
+</div>
+```
 
 ### cgmd#column
-wip
+
+```
+[column]
+# コラムタイトル
+
+コラム本文
+[/column]
+```
+
+↓
+
+```html
+<div class="Column">
+  <h1 id="-">コラムタイトル</h1>
+  <p>コラム本文</p>
+</div>
+```
 
 ### cgmd#demo
 
-<pre>
 ```
 [demo]
 # DEMOタイトル
 
-&gt;iframe src="http://example.com/demo.html" data-trigger&lt;&gt;/iframe&gt;
+<iframe src="http://example.com/demo.html" data-trigger></iframe>
 [/demo]
 ```
-</pre>
 
 ↓
 
@@ -69,7 +101,6 @@ wip
 
 ### cgmd#imgbox
 
-<pre>
 ```
 [imgbox]
 # 画像タイトル
@@ -77,7 +108,6 @@ wip
 ![画像alt](http://example.com/image.png)
 [/imgbox]
 ```
-</pre>
 
 ↓
 
@@ -90,7 +120,6 @@ wip
 
 ### cgmd#jade
 
-<pre>
 ```
 [jade]
 ul
@@ -100,7 +129,6 @@ ul
 p またの名をpugとも言う
 [/jade]
 ```
-</pre>
 
 ↓
 
@@ -112,6 +140,8 @@ p またの名をpugとも言う
 
 <p>またの名をpugとも言う</p>
 ```
+
+これらの記法は、互いにネストすることはできません。
 
 次に、mdパターン。
 
