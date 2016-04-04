@@ -47,38 +47,94 @@ wip
 wip
 
 ### cgmd#demo
-wip
+
+<pre>
+```
+[demo]
+# DEMOタイトル
+
+&gt;iframe src="http://example.com/demo.html" data-trigger&lt;&gt;/iframe&gt;
+[/demo]
+```
+</pre>
+
+↓
+
+```html
+<div class="Demo">
+  <h1 id="demo-">DEMOタイトル</h1>
+  <iframe src="http://example.com/demo.html" data-trigger></iframe>
+</div>
+```
 
 ### cgmd#imgbox
-wip
+
+<pre>
+```
+[imgbox]
+# 画像タイトル
+
+![画像alt](http://example.com/image.png)
+[/imgbox]
+```
+</pre>
+
+↓
+
+```html
+<div class="Imgbox">
+  <h1 id="-">画像title</h1>
+  <p><img src="http://example.com/image.png" alt="画像alt"></p>
+</div>
+```
 
 ### cgmd#jade
-wip
 
+<pre>
+```
+[jade]
+ul
+  li jadeが
+  li そのまま書けます
+
+p またの名をpugとも言う
+[/jade]
+```
+</pre>
+
+↓
+
+```html
+<ul>
+  <li>jadeが</li>
+  <li>そのまま書けます</li>
+</ul>
+
+<p>またの名をpugとも言う</p>
+```
 
 次に、mdパターン。
 
 ### md#code
 
-GFMのコードブロックで、Syntaxを指定する部分を以下のようにできます。
-
 <pre>
 ```html#素敵なdiv
-<div></div>
+&lt;div&gt;&lt;/div&gt;
 ```
 </pre>
 
-すると、以下が出力されます。
+GFMのコードブロックで、Syntaxを指定する部分をこのようにすると、以下が出力されます。
 
 ```html
 <div class="Code">
   <div class="Code__title">素敵なdiv</div>
   <div class="Code__body">
-    &lt;div&gt;&lt;/div&gt;
+    <pre><code class="lang-html">
+      &lt;div&gt;&lt;/div&gt;
+    </code></pre>
   </div>
 </div>
 ```
-
 
 ## LICENSE
 MIT
