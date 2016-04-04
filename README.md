@@ -26,85 +26,145 @@ cgmd ./path/to/your.md
 
 # or
 cgmd ./path/to/your.md -o ./path/to/your.html
+
+# can also
+cgmd '# foo'
 ```
 
-## サンプル
+## 記法
 
-<pre>
-```cg:note
-# たいとる
-本文ほげほげ
+- cgmdとしての拡張記法
+- mdの拡張記法
 
-[リンク](#foo)も書けるよ。
-```</pre>
+この2パターンの拡張があります。
+
+cgmdパターンは、通常のMarkdownの中に混ぜて書くことができ、`[foo]通常のMarkdownテキスト[/foo]`の形式で記述します。
+
+### cgmd#note
+
+```
+[note]
+# 注釈タイトル
+
+注釈本文
+[/note]
+```
 
 ↓
 
 ```html
 <div class="Note">
-  <h1>たいとる</h1>
-  <p>本文ほげほげ<a href="#foo">リンク</a>も書けるよ。</p>
+  <h1 id="-">注釈タイトル</h1>
+  <p>注釈本文</p>
 </div>
 ```
 
+### cgmd#column
 
-## 機能
-基本的に、[GFM](https://help.github.com/articles/github-flavored-markdown)が使えるほか、以下のCodeGrid用モジュールが使えます。
+```
+[column]
+# コラムタイトル
 
-### 注釈
+コラム本文
+[/column]
+```
+
+↓
+
+```html
+<div class="Column">
+  <h1 id="-">コラムタイトル</h1>
+  <p>コラム本文</p>
+</div>
+```
+
+### cgmd#demo
+
+```
+[demo]
+# DEMOタイトル
+
+<iframe src="http://example.com/demo.html" data-trigger></iframe>
+[/demo]
+```
+
+↓
+
+```html
+<div class="Demo">
+  <h1 id="demo-">DEMOタイトル</h1>
+  <iframe src="http://example.com/demo.html" data-trigger></iframe>
+</div>
+```
+
+### cgmd#imgbox
+
+```
+[imgbox]
+# 画像タイトル
+
+![画像alt](http://example.com/image.png)
+[/imgbox]
+```
+
+↓
+
+```html
+<div class="Imgbox">
+  <h1 id="-">画像title</h1>
+  <p><img src="http://example.com/image.png" alt="画像alt"></p>
+</div>
+```
+
+### cgmd#jade
+
+```
+[jade]
+ul
+  li jadeが
+  li そのまま書けます
+
+p またの名をpugとも言う
+[/jade]
+```
+
+↓
+
+```html
+<ul>
+  <li>jadeが</li>
+  <li>そのまま書けます</li>
+</ul>
+
+<p>またの名をpugとも言う</p>
+```
+
+これらの記法は、互いにネストすることはできません。
+
+次に、mdパターン。
+
+### md#code
+
 <pre>
-```cg:note
-# タイトル
-あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら・・・
-```</pre>
+```html#素敵なdiv
+&lt;div&gt;&lt;/div&gt;
+```
+</pre>
 
-### コラム
-<pre>
-```cg:column
-# タイトル
-あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら・・・
-```</pre>
+GFMのコードブロックで、Syntaxに続けて`#コードのタイトル`を指定すると、以下が出力されます。
 
-### 画像ボックス
-<pre>
-```cg:imgbox
-# タイトル
-あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら・・・
-![sample](http://i.giphy.com/Hc8PMCBjo9BXa.gif)
-```</pre>
+```html
+<div class="Code">
+  <div class="Code__title">素敵なdiv</div>
+  <div class="Code__body">
+    <pre><code class="lang-html">
+      &lt;div&gt;&lt;/div&gt;
+    </code></pre>
+  </div>
+</div>
+```
 
-### iframeデモ
-<pre>
-```cg:demo
-# タイトル
-あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら・・・
-<iframe data-trigger="data-trigger" src="" class="sizeM"></iframe>
-```</pre>
-
-### jade
-<pre>
-```cg:jade
-.Masaka
-  .Konnna_koto_mo
-  .Dekiru_nannte
-```</pre>
-
-### コードブロック
-
-一行目が#で始まっていたら、それがタイトルになる。
-
-> `cg:code:` のように中途半端な指定をすると、CodeGridMarkdownとして認識されないので注意
-
-<pre>
-```cg:code:html
-# sample.html
-<div>this is sample</div>
-```</pre>
-
-<pre>
-```cg:code:html
-<div>this is sample</div>
-```</pre>
+コードのタイトル指定がない場合、通常のMarkdownのコードブロックとして処理されます。
 
 ## LICENSE
 MIT
