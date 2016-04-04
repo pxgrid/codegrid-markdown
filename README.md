@@ -26,85 +26,42 @@ cgmd ./path/to/your.md
 
 # or
 cgmd ./path/to/your.md -o ./path/to/your.html
+
+# can also
+cgmd # foo
 ```
 
-## サンプル
+## 記法
 
-<pre>
-```cg:note
-# たいとる
-本文ほげほげ
+- cgmdとしての拡張記法
+- mdの拡張記法
 
-[リンク](#foo)も書けるよ。
-```</pre>
+この2パターンの拡張があります。
 
-↓
+まずはcgmdパターン。
 
-```html
-<div class="Note">
-  <h1>たいとる</h1>
-  <p>本文ほげほげ<a href="#foo">リンク</a>も書けるよ。</p>
-</div>
-```
+### cgmd#note
+wip
+
+### cgmd#column
+wip
+
+### cgmd#demo
+wip
+
+### cgmd#imgbox
+wip
+
+### cgmd#jade
+wip
 
 
-## 機能
-基本的に、[GFM](https://help.github.com/articles/github-flavored-markdown)が使えるほか、以下のCodeGrid用モジュールが使えます。
+次に、mdパターン。
 
-### 注釈
-<pre>
-```cg:note
-# タイトル
-あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら・・・
-```</pre>
+### md#code
 
-### コラム
-<pre>
-```cg:column
-# タイトル
-あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら・・・
-```</pre>
+wip
 
-### 画像ボックス
-<pre>
-```cg:imgbox
-# タイトル
-あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら・・・
-![sample](http://i.giphy.com/Hc8PMCBjo9BXa.gif)
-```</pre>
-
-### iframeデモ
-<pre>
-```cg:demo
-# タイトル
-あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら・・・
-<iframe data-trigger="data-trigger" src="" class="sizeM"></iframe>
-```</pre>
-
-### jade
-<pre>
-```cg:jade
-.Masaka
-  .Konnna_koto_mo
-  .Dekiru_nannte
-```</pre>
-
-### コードブロック
-
-一行目が#で始まっていたら、それがタイトルになる。
-
-> `cg:code:` のように中途半端な指定をすると、CodeGridMarkdownとして認識されないので注意
-
-<pre>
-```cg:code:html
-# sample.html
-<div>this is sample</div>
-```</pre>
-
-<pre>
-```cg:code:html
-<div>this is sample</div>
-```</pre>
 
 ## LICENSE
 MIT
