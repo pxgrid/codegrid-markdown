@@ -110,7 +110,7 @@ cgmdパターンは、通常のMarkdownの中に混ぜて書くことができ�
 ↓
 
 ```html
-<div class="Imgbox">
+<div class="ImgBox">
   <h1 id="-">画像title</h1>
   <p><img src="http://example.com/image.png" alt="画像alt"></p>
 </div>
