@@ -154,9 +154,11 @@ p またの名をpugとも言う
 GFMのコードブロックで、Syntaxに続けて`#コードのタイトル`を指定すると、以下が出力されます。
 
 ```html
-<div class="Code">
-  <div class="Code__title">素敵なdiv</div>
-  <div class="Code__body">
+<div class="CG2-livecode">
+  <header class="CG2-livecode__header">
+    <div class="CG2-livecode__label">素敵なdiv</div>
+  </header>
+  <div class="CG2-livecode__body">
     <pre><code class="lang-html">
       &lt;div&gt;&lt;/div&gt;
     </code></pre>
