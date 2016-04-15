@@ -84,7 +84,7 @@ cgmdパターンは、通常のMarkdownの中に混ぜて書くことができ�
 [demo]
 # DEMOタイトル
 
-<iframe src="http://example.com/demo.html" data-trigger=""></iframe>
+<iframe src="http://example.com/demo.html" data-deferred></iframe>
 [/demo]
 ```
 
@@ -107,7 +107,7 @@ cgmdパターンは、通常のMarkdownの中に混ぜて書くことができ�
     </div>
   </header>
   <div class="CG2-livecode__body">
-    <iframe src="http://example.com/demo.html" data-trigger=""></iframe>
+    <iframe src="http://example.com/demo.html" data-deferred></iframe>
   </div>
 </div>
 ```
