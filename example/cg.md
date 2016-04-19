@@ -120,5 +120,5 @@ Grid Layout Moduleの理解を深めるには、そこに登場する用語を�
 タイトルのないデモ
 
 [demo]
-<iframe src="https://s3-ap-northeast-1.amazonaws.com/codegrid/2016-display-grid/demo/1/index.html" data-trigger></iframe>
+<iframe src="https://s3-ap-northeast-1.amazonaws.com/codegrid/2016-display-grid/demo/1/index.html" data-deferred></iframe>
 [/demo]
