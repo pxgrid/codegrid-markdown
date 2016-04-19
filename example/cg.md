@@ -49,10 +49,6 @@ Grid Layout Moduleでは、CSS上でレイアウト情報を定義すること�
 
 たったこれだけで、HTMLの構造からは想像しづらいレイアウトを実現することができます。このデモを新しいウィンドウで開き、ウィンドウサイズを変化させてみると、レイアウトが変更されることを確認できるはずです。
 
-[demo]
-# display: gridを利用したレイアウト
-<iframe src="https://s3-ap-northeast-1.amazonaws.com/codegrid/2016-display-grid/demo/1/index.html" data-trigger></iframe>
-[/demo]
 
 [column]
 # コラム：古いシンタックスと最新のシンタックス
@@ -106,3 +102,23 @@ Grid Layout Moduleの理解を深めるには、そこに登場する用語を�
 }
 ```
 [/column]
+
+このデモが問題
+
+[demo]
+# display: gridを利用したレイアウト
+<iframe src="https://s3-ap-northeast-1.amazonaws.com/codegrid/2016-display-grid/demo/1/index.html"></iframe>
+[/demo]
+
+
+
+[demo]
+# display: gridを利用したレイアウト(遅延開始)
+<iframe src="https://s3-ap-northeast-1.amazonaws.com/codegrid/2016-display-grid/demo/1/index.html" data-deferred></iframe>
+[/demo]
+
+タイトルのないデモ
+
+[demo]
+<iframe src="https://s3-ap-northeast-1.amazonaws.com/codegrid/2016-display-grid/demo/1/index.html" data-deferred></iframe>
+[/demo]

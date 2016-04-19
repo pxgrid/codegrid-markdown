@@ -84,16 +84,31 @@ cgmdパターンは、通常のMarkdownの中に混ぜて書くことができ�
 [demo]
 # DEMOタイトル
 
-<iframe src="http://example.com/demo.html" data-trigger></iframe>
+<iframe src="http://example.com/demo.html" data-deferred></iframe>
 [/demo]
 ```
 
 ↓
 
 ```html
-<div class="Demo">
-  <h1 id="demo-">DEMOタイトル</h1>
-  <iframe src="http://example.com/demo.html" data-trigger></iframe>
+<div class="CG2-livecode">
+  <header class="CG2-livecode__header">
+    <div class="CG2-livecode__label">
+      DEMOタイトル
+    </div>
+    <div class="CG2-livecode__nav">
+      <ul>
+        <li>
+          <a href="http://example.com/demo.html" target="_blank">
+            <span class="CG2-icon-tool"></span> 新規タブで開く
+          </a>
+        </li>
+      </ul>
+    </div>
+  </header>
+  <div class="CG2-livecode__body">
+    <iframe src="http://example.com/demo.html" data-deferred></iframe>
+  </div>
 </div>
 ```
 
