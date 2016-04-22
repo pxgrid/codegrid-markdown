@@ -140,6 +140,8 @@ cgmdパターンは、通常のMarkdownの中に混ぜて書くことができ�
 ```
 [imgbox]
 # 画像タイトル
+画像の説明
+
 ![画像alt](http://example.com/image.png)
 [/imgbox]
 ```
@@ -149,6 +151,7 @@ cgmdパターンは、通常のMarkdownの中に混ぜて書くことができ�
 ```html
 <div class="ImgBox">
   <h1 id="-">画像title</h1>
+  <p>画像の説明</p>
   <p><img src="http://example.com/image.png" alt="画像alt"></p>
 </div>
 ```
