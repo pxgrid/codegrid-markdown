@@ -124,6 +124,17 @@ cgmdパターンは、通常のMarkdownの中に混ぜて書くことができ�
 [/demo]
 ```
 
+ソースコードへのリンクが欲しい場合。
+
+```
+[demo]
+# DEMOタイトル
+[ソースコード](http://example.com)
+
+<iframe src="http://example.com/demo.html"></iframe>
+[/demo]
+```
+
 ### cgmd#imgbox
 
 ```
