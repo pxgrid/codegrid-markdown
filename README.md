@@ -31,6 +31,8 @@ cgmd ./path/to/your.md -o ./path/to/your.html
 cgmd '# foo'
 ```
 
+Browserifyから利用する場合、ブラウザ環境でも利用可能です。
+
 ## 記法
 
 - cgmdとしての拡張記法
@@ -84,7 +86,7 @@ cgmdパターンは、通常のMarkdownの中に混ぜて書くことができ�
 [demo]
 # DEMOタイトル
 
-<iframe src="http://example.com/demo.html" data-deferred></iframe>
+<iframe src="http://example.com/demo.html"></iframe>
 [/demo]
 ```
 
@@ -107,9 +109,19 @@ cgmdパターンは、通常のMarkdownの中に混ぜて書くことができ�
     </div>
   </header>
   <div class="CG2-livecode__body">
-    <iframe src="http://example.com/demo.html" data-deferred></iframe>
+    <iframe src="http://example.com/demo.html"></iframe>
   </div>
 </div>
+```
+
+クリックで再生モードにしたい場合。
+
+```
+[demo]
+# DEMOタイトル
+
+<iframe data-src="http://example.com/demo.html" data-deferred="data-deferred"></iframe>
+[/demo]
 ```
 
 ### cgmd#imgbox
@@ -117,7 +129,6 @@ cgmdパターンは、通常のMarkdownの中に混ぜて書くことができ�
 ```
 [imgbox]
 # 画像タイトル
-
 ![画像alt](http://example.com/image.png)
 [/imgbox]
 ```
