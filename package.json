@@ -1,6 +1,6 @@
 {
   "name": "codegrid-markdown",
-  "version": "3.2.0",
+  "version": "3.2.1",
   "description": "CodeGrid-specified markdown processor.",
   "main": "lib/index.js",
   "bin": {
