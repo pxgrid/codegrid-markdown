@@ -10,7 +10,7 @@ describe('CodeGridMarkdown - Renderer - cgmd', function() {
 describe('#imgbox', function() {
   it('レンダリングできること', function() {
     var res = renderImgbox('foo', renderer);
-    var expect = '<div class="ImgBox">\n<p>foo</p>\n\n</div>\n';
+    var expect = '<figure class="ImgBox">\n<p>foo</p>\n\n</figure>\n';
     assert.equal(res, expect);
   });
 });
