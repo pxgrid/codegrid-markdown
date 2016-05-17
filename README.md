@@ -93,7 +93,7 @@ cgmdパターンは、通常のMarkdownの中に混ぜて書くことができ�
 ↓
 
 ```html
-<div class="CG2-livecode">
+<section class="CG2-livecode">
   <header class="CG2-livecode__header">
     <div class="CG2-livecode__label">
       DEMOタイトル
@@ -111,7 +111,7 @@ cgmdパターンは、通常のMarkdownの中に混ぜて書くことができ�
   <div class="CG2-livecode__body">
     <iframe src="http://example.com/demo.html"></iframe>
   </div>
-</div>
+</section>
 ```
 
 クリックで再生モードにしたい場合。
@@ -194,7 +194,7 @@ p またの名をpugとも言う
 GFMのコードブロックで、Syntaxに続けて`#コードのタイトル`を指定すると、以下が出力されます。
 
 ```html
-<div class="CG2-livecode">
+<section class="CG2-livecode">
   <header class="CG2-livecode__header">
     <div class="CG2-livecode__label">素敵なdiv</div>
   </header>
@@ -203,7 +203,7 @@ GFMのコードブロックで、Syntaxに続けて`#コードのタイトル`�
       &lt;div&gt;&lt;/div&gt;
     </code></pre>
   </div>
-</div>
+</section>
 ```
 
 コードのタイトル指定がない場合、通常のMarkdownのコードブロックとして処理されます。

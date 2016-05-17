@@ -25,14 +25,14 @@ describe('#code', function() {
   it('言語とタイトル指定が正しい場合は拡張したやつ', function() {
     var html = renderer.render('```html#title\nhoge\n```');
     var expect = '' +
-      '<div class="CG2-livecode">\n' +
+      '<section class="CG2-livecode">\n' +
         '<header class="CG2-livecode__header">\n' +
           '<div class="CG2-livecode__label">title</div>\n' +
         '</header>\n' +
         '<div class="CG2-livecode__body">' +
           '<pre><code class="lang-html">hoge\n</code></pre>\n' +
         '</div>\n' +
-      '</div>\n';
+      '</section>\n';
     assert.equal(html, expect);
   });
 });
