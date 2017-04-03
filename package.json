@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "cheerio": "^0.20.0",
+    "gh-diff-html": "0.0.3",
     "jade": "^1.11.0",
     "marked": "^0.3.3",
     "yargs": "^3.20.0"
