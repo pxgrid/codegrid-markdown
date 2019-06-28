@@ -10,7 +10,7 @@ describe('CodeGridMarkdown - Renderer - cgmd', function() {
 describe('#demo', function() {
   it('レンダリングできること', function() {
     var res = renderDemo('<iframe src="http://example.com" data-deferred></iframe>', renderer);
-    var expect = '<div class="Demo">\n<iframe src="http://example.com" data-deferred></iframe>\n</div>\n';
+    var expect = '<div class="cgmd-Demo">\n<iframe src="http://example.com" data-deferred></iframe>\n</div>\n';
     assert.equal(res, expect);
   });
 });

@@ -16,7 +16,13 @@ describe('#renderToken', function() {
 
   it('CGMD_Tokenをレンダリングできること', function() {
     var res = renderer.renderToken(token);
-    var expect = '<div class="Note">\n<p>b</p>\n\n</div>\n';
+    var expect = '<div class="cgmd-Note">\n<p>b</p>\n\n</div>\n';
+    var expect = '' +
+      '<aside class="cgmd-Note">\n' +
+        '<section class="cgmd-Note_Inner">\n' +
+        '<p>b</p>\n\n' +
+        '</section>\n' +
+      '</aside>\n';
     assert.equal(res, expect);
   });
 });

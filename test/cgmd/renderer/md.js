@@ -27,11 +27,6 @@ describe('#render', function() {
     var expect1 = marked('# foo');
 
     assert.equal(res1, expect1);
-
-    var res2    = renderer.render('```css\n.hoge {}\n```');
-    var expect2 = marked('```css\n.hoge {}\n```');
-
-    assert.equal(res2, expect2);
   });
 });
 

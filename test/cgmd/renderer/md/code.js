@@ -7,32 +7,58 @@ describe('CodeGridMarkdown - Renderer - md', function() {
 
 
 describe('#code', function() {
-  it('言語指定がない場合はmarked標準', function() {
+  it('言語指定がない場合の拡張したやつ', function() {
     var html = renderer.render('```\nhoge\n```');
     var expect = '<pre><code>hoge\n</code></pre>';
+    var expect = '' +
+      '<figure class="cgmd-Code">\n' +
+        '<div class="cgmd-Code_Inner">\n' +
+          '<div class="cgmd-Code_Body"><pre><code>hoge\n</code></pre></div>\n' +
+        '</div>\n' +
+      '</figure>\n';
     assert.equal(html, expect);
   });
-  it('言語指定だけある場合もmarked標準', function() {
+  it('言語指定だけある場合の拡張したやつ', function() {
     var html = renderer.render('```html\nhoge\n```');
-    var expect = '<pre><code class="lang-html">hoge\n</code></pre>\n';
+    var expect = '' +
+      '<figure class="cgmd-Code">\n' +
+        '<div class="cgmd-Code_Inner">\n' +
+          '<figcaption class="cgmd-Code_Header">\n' +
+            '<span class="cgmd-Code_Lang">html</span>\n' +
+          '</figcaption>\n' +
+          '<div class="cgmd-Code_Body"><pre><code class="lang-html">hoge\n</code></pre>\n</div>\n' +
+        '</div>\n' +
+      '</figure>\n';
     assert.equal(html, expect);
   });
-  it('タイトル指定が雑な場合もmarked標準', function() {
+  it('タイトル指定が雑な場合の拡張したやつ', function() {
     var html = renderer.render('```html#\nhoge\n```');
-    var expect = '<pre><code class="lang-html">hoge\n</code></pre>\n';
+    var expect = '' +
+      '<figure class="cgmd-Code">\n' +
+        '<div class="cgmd-Code_Inner">\n' +
+          '<figcaption class="cgmd-Code_Header">\n' +
+            '<span class="cgmd-Code_Lang">html</span>\n' +
+          '</figcaption>\n' +
+          '<div class="cgmd-Code_Body"><pre><code class="lang-html">hoge\n</code></pre>\n</div>\n' +
+        '</div>\n' +
+      '</figure>\n';
     assert.equal(html, expect);
   });
   it('言語とタイトル指定が正しい場合は拡張したやつ', function() {
     var html = renderer.render('```html#title\nhoge\n```');
     var expect = '' +
-      '<section class="CG2-livecode">\n' +
-        '<header class="CG2-livecode__header">\n' +
-          '<div class="CG2-livecode__label">title</div>\n' +
-        '</header>\n' +
-        '<div class="CG2-livecode__body">' +
-          '<pre><code class="lang-html">hoge\n</code></pre>\n' +
+      '<figure class="cgmd-Code">\n' +
+        '<div class="cgmd-Code_Inner">\n' +
+          '<figcaption class="cgmd-Code_Header">\n' +
+            '<span class="cgmd-Code_Title">title</span>\n' +
+            '<span class="cgmd-Code_Lang">html</span>\n' +
+          '</figcaption>\n' +
+          '<div class="cgmd-Code_Body">' +
+            '<pre><code class="lang-html">hoge\n</code></pre>\n' +
+          '</div>\n' +
         '</div>\n' +
-      '</section>\n';
+      '</figure>\n';
+
     assert.equal(html, expect);
   });
 });

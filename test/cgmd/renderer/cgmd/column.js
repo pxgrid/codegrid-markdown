@@ -10,7 +10,12 @@ describe('CodeGridMarkdown - Renderer - cgmd', function() {
 describe('#column', function() {
   it('レンダリングできること', function() {
     var res = renderColumn('foo', renderer);
-    var expect = '<div class="Column">\n<p>foo</p>\n\n</div>\n';
+    var expect = '' +
+      '<aside class="cgmd-Column">\n' +
+        '<section class="cgmd-Column_Inner">\n' +
+        '<p>foo</p>\n\n' +
+        '</section>\n' +
+      '</aside>\n';
     assert.equal(res, expect);
   });
 });

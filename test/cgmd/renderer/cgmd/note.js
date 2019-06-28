@@ -10,7 +10,12 @@ describe('CodeGridMarkdown - Renderer - cgmd', function() {
 describe('#note', function() {
   it('レンダリングできること', function() {
     var res = renderNote('foo', renderer);
-    var expect = '<div class="Note">\n<p>foo</p>\n\n</div>\n';
+    var expect = '' +
+      '<aside class="cgmd-Note">\n' +
+        '<section class="cgmd-Note_Inner">\n' +
+        '<p>foo</p>\n\n' +
+        '</section>\n' +
+      '</aside>\n';
     assert.equal(res, expect);
   });
 });
