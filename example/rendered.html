@@ -1,0 +1,112 @@
+<h2 id="-">はじめに</h2>
+<p>グリッド・カラムレイアウトといえば、以前紹介したFlexible Box（<a href="https://app.codegrid.net/entry/flexiblebox-1">そこが知りたい、Flexible Box</a>）や<code>display:table;</code>を利用したマルチカラムレイアウト（<a href="https://app.codegrid.net/entry/css-table-1">第1回 display: tableの活用 1</a>）などがあります。また、CodeGridではまだ紹介していませんが、<a href="https://www.w3.org/TR/css3-multicol/#columns">CSS Multi-column Layout Module</a>もマルチカラムレイアウトをする上で重要です。</p>
+<div class="Note">
+<h1 id="-flexible-box-">*注：Flexible Boxやマルチカラムレイアウト</h1>
+<p>CodeGridでは以下の記事で紹介しました。</p>
+<ul>
+<li>「<a href="https://app.codegrid.net/series/2015-css-flexiblebox">そこが知りたい、Flexible Box</a>」シリーズ</li>
+<li>「<a href="https://app.codegrid.net/entry/css-table-1">第1回 display: tableの活用 1</a>」</li>
+</ul>
+
+</div>
+<h2 id="-">何ができるのか</h2>
+<p>Grid Layout Moduleでは、CSS上でレイアウト情報を定義することができます。<code>display: grid;</code>が指定された親要素にグリッドレイアウト情報を定義し、その子要素では、そのグリッドのどこに配置されるかを定義します。table要素を利用したテーブルレイアウトと似たように思えますが、table要素がHTML側でレイアウト構造を指定することに対し、Grid Layout ModuleではCSS側で、どのようなレイアウト構造にするかを指定します。</p>
+<figure class="ImgBox">
+<h1 id="-">ゲーム画面のレイアウト</h1>
+<p><img src="https://s3-ap-northeast-1.amazonaws.com/codegrid/2016-display-grid/img/img01.png" alt></p>
+
+</figure>
+<p>広い画面と狭い画面でレイアウトを変更しています。これをGrid Layout Moduleを使い、実現します。</p>
+<p>まずはHTML部分です。HTMLの構造は非常に単純です。</p>
+<section class="CG2-livecode">
+<header class="CG2-livecode__header">
+<div class="CG2-livecode__label">display:gridのHTMLの例</div>
+</header>
+<div class="CG2-livecode__body"><pre><code class="lang-html">&lt;div class=&quot;grid&quot;&gt;
+  &lt;div class=&quot;title&quot;&gt;Title&lt;/div&gt;
+  &lt;div class=&quot;status&quot;&gt;Status&lt;/div&gt;
+  &lt;div class=&quot;memberList&quot;&gt;Member List&lt;/div&gt;
+  &lt;div class=&quot;gameWindow&quot;&gt;Game Window&lt;/div&gt;
+  &lt;div class=&quot;chatWindow&quot;&gt;Chat Window&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+</div>
+</section>
+<p>次にCSS部分です。<code>display: grid;</code>などを使用して、レイアウト情報を指定します。画面幅が狭くなった時には、メディアクエリでレイアウトを再定義しています。</p>
+<pre><code class="lang-css">/* landscape */
+.grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto 1fr auto;
+}
+.chatWindow {
+  grid-area: 3 / 2;
+}
+</code></pre>
+<p>たったこれだけで、HTMLの構造からは想像しづらいレイアウトを実現することができます。このデモを新しいウィンドウで開き、ウィンドウサイズを変化させてみると、レイアウトが変更されることを確認できるはずです。</p>
+<div class="Column">
+<h1 id="-">コラム：古いシンタックスと最新のシンタックス</h1>
+<p>もしIE10以降やEdgeにも対応したい場合は、Autoprefixerを併用することをおすすめします。この記事の執筆中にAutoprefixerのバージョンが上がり（<a href="https://github.com/postcss/autoprefixer/releases/tag/6.3.0">6.3 “Pro rege et lege”</a>）、最新の仕様に沿った記述をすれば、IE用の記述にも対応ができます。ですが、すべてのGrid Layout Moduleに関するプロパティが古い仕様に対応しているわけではないので注意が必要です。</p>
+<pre><code class="lang-css">.nested-code-block {
+  in: the-cg-colum;
+}
+</code></pre>
+
+</div>
+<h2 id="grid-layout-module-">Grid Layout Moduleに登場する用語</h2>
+<p>Grid Layout Moduleの理解を深めるには、そこに登場する用語を知っておく必要があります。ここで紹介する用語は以下のとおりです。</p>
+<ul>
+<li>グリッドコンテナ</li>
+<li>グリッドエリア</li>
+</ul>
+<p>まずは、Grid Layout Moduleに登場する用語の中で最も大事な、グリッドコンテナとグリッドアイテムについて解説します。</p>
+<p>グリッドコンテナに関連するプロパティは以下の通りです。</p>
+<table>
+<thead>
+<tr>
+<th>プロパティ</th>
+<th>意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>grid</code></td>
+<td><code>grid-template</code>、<code>grid-auto-flow</code>、<code>grid-auto-rows</code>、<code>grid-auto-columns</code>を指定できるショートハンドプロパティ</td>
+</tr>
+<tr>
+<td><code>grid-template</code></td>
+<td><code>grid-template-columns</code>、<code>grid-template-rows</code>、<code>grid-template-areas</code>を指定できるショートハンドプロパティ</td>
+</tr>
+<tr>
+<td><code>grid-template-rows</code></td>
+<td>行のグリッドトラックそれぞれのサイズを指定する</td>
+</tr>
+</tbody>
+</table>
+<p>これらのプロパティを駆使して、レイアウト情報を指定します。<code>justify-content</code>や<code>align-content</code>などは、Flexible Boxで解説したものと同じです。</p>
+<h2 id="-">まとめ</h2>
+<p>今回はひとまず基本となる概念、グリッドコンテナとグリッドアイテムについて解説しました。次回はさらにグリッドを基本とするレイアウトに必要な概念と、その実装について解説を進めていきます。じっくりお付き合いください。</p>
+<pre><code>ここは何もついてないブロック
+</code></pre><pre><code class="lang-html">&lt;div&gt;escape?&lt;/div&gt;
+</code></pre>
+<div class="Column">
+<h1 id="-">コラム</h1>
+<p>もしIE10</p>
+<section class="CG2-livecode">
+<header class="CG2-livecode__header">
+<div class="CG2-livecode__label">コラムのコード</div>
+</header>
+<div class="CG2-livecode__body"><pre><code class="lang-css">.nested-code-block {
+  in: the-cg-colum;
+}
+</code></pre>
+</div>
+</section>
+
+</div>
+<p>このデモが問題</p>
+<section class="CG2-livecode"><header class="CG2-livecode__header"><div class="CG2-livecode__label">display: gridを利用したレイアウト</div><div class="CG2-livecode__nav"><ul><li><a href="https://s3-ap-northeast-1.amazonaws.com/codegrid/2016-display-grid/demo/1/index.html">新規タブで開く</a></li></ul></div></header><div class="CG2-livecode__body"><iframe src="https://s3-ap-northeast-1.amazonaws.com/codegrid/2016-display-grid/demo/1/index.html"></iframe></div></section>
+<section class="CG2-livecode"><header class="CG2-livecode__header"><div class="CG2-livecode__label">display: gridを利用したレイアウト(遅延開始)</div><div class="CG2-livecode__nav"><ul><li><a href="https://s3-ap-northeast-1.amazonaws.com/codegrid/2016-display-grid/demo/1/index.html">新規タブで開く</a></li></ul></div></header><div class="CG2-livecode__body"><iframe src="https://s3-ap-northeast-1.amazonaws.com/codegrid/2016-display-grid/demo/1/index.html" data-deferred></iframe></div></section>
+<p>タイトルのないデモ</p>
+<section class="CG2-livecode"><header class="CG2-livecode__header"><div class="CG2-livecode__label"></div><div class="CG2-livecode__nav"><ul><li><a href="https://s3-ap-northeast-1.amazonaws.com/codegrid/2016-display-grid/demo/1/index.html">新規タブで開く</a></li></ul></div></header><div class="CG2-livecode__body"><iframe src="https://s3-ap-northeast-1.amazonaws.com/codegrid/2016-display-grid/demo/1/index.html" data-deferred></iframe></div></section>
+
