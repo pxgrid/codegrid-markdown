@@ -23,7 +23,9 @@ describe('#code', function() {
     assert.equal(html, expect);
   });
   it('言語とタイトル指定が正しい場合は拡張したやつ', function() {
-    var html = renderer.render('```html#title\nhoge\n```');
+    var html1 = renderer.render('```html#title\nhoge\n```');
+    // スペースがあっても気にしない
+    var html2 = renderer.render('```html #title\nhoge\n```');
     var expect = '' +
       '<section class="CG2-livecode">\n' +
         '<header class="CG2-livecode__header">\n' +
@@ -33,7 +35,8 @@ describe('#code', function() {
           '<pre><code class="lang-html">hoge</code></pre>\n' +
         '</div>\n' +
       '</section>\n';
-    assert.equal(html, expect);
+    assert.equal(html1, expect);
+    assert.equal(html2, expect);
   });
 });
 
