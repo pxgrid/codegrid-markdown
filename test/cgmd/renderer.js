@@ -13,7 +13,7 @@ describe('#render', function() {
     var md   = '[note]\n# h1\n[/note]';
     var html = '' +
       '<div class="Note">\n' +
-        '<h1 id="h1">h1</h1>\n' +
+        '<h1>h1</h1>\n' +
       '\n</div>\n';
     var token = Tokenizer.tokenize(md)[0];
     assert.equal(renderer.render(token), html);
@@ -22,7 +22,7 @@ describe('#render', function() {
   it('mdトークン', function() {
     var md   = '# h1';
     var html = '' +
-      '<h1 id="h1">h1</h1>\n';
+      '<h1>h1</h1>\n';
     var token = Tokenizer.tokenize(md)[0];
     assert.equal(renderer.render(token), html);
   });
