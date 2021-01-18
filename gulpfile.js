@@ -9,3 +9,11 @@ gulp.task('test', function() {
       .pipe(espower())
       .pipe(mocha());
 });
+
+gulp.task('test:watch', function() {
+  return gulp.watch(['test/**/*.js', 'lib/**/*.js'], function() {
+    return gulp.src(['test/**/*.js'])
+        .pipe(espower())
+        .pipe(mocha());
+  });
+});

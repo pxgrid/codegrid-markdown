@@ -20,6 +20,7 @@
   },
   "scripts": {
     "test": "gulp test",
+    "test:watch": "gulp test:watch",
     "example": "node example/main.js > example/rendered.html"
   },
   "repository": {
