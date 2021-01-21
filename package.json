@@ -1,6 +1,6 @@
 {
   "name": "codegrid-markdown",
-  "version": "3.3.0",
+  "version": "4.0.0",
   "description": "CodeGrid-specified markdown processor.",
   "main": "lib/index.js",
   "types": "index.d.ts",
