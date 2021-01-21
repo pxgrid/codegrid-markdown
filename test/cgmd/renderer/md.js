@@ -23,13 +23,13 @@ describe('#renderToken', function() {
 
 describe('#render', function() {
   it('markedと同じ内容でふつうのMarkdownをレンダリングできること', function() {
-    var res1    = renderer.render('# foo');
-    var expect1 = marked('# foo');
+    var res1    = renderer.render('- foo\n -bar');
+    var expect1 = marked('- foo\n- bar');
 
     assert.equal(res1, expect1);
 
-    var res2    = renderer.render('```css\n.hoge {}\n```');
-    var expect2 = marked('```css\n.hoge {}\n```');
+    var res2    = renderer.render('```\n.hoge {}\n```');
+    var expect2 = marked('```\n.hoge {}\n```');
 
     assert.equal(res2, expect2);
   });

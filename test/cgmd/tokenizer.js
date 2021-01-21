@@ -42,6 +42,32 @@ describe('#tokenize', function() {
       Tokenizer.tokenize('[demo]\n# Forgot closing!');
     });
   });
+
+  it('cgmdの規定のタイプ以外は無視', function() {
+    var tokens = Tokenizer.tokenize([
+      '```toml',
+      '[build]',
+      '  npm run build',
+      '```'
+    ].join('\n'));
+    assert.equal(tokens.length, 1);
+    assert(tokens[0].isTypeMD());
+  });
+
+  it('cgmdの規定のタイプでも、行頭でないなら無視', function() {
+    var tokens = Tokenizer.tokenize([
+      '```js',
+      'useEffect(',
+      '  () => {',
+      '    console.log(demo);',
+      '  }',
+      '  [demo]',
+      ');',
+      '```'
+    ].join('\n'));
+    assert.equal(tokens.length, 1);
+    assert(tokens[0].isTypeMD());
+  });
 });
 
 
