@@ -7,7 +7,7 @@ export default class CodeGridMarkdown {
  * Basically the same as MarkedOptions.
  * Except for `renderer`, `headerIds`, `langPrefix` options.
  *
- * See also https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/marked/index.d.ts#L252-L339
+ * See also https://github.com/DefinitelyTyped/DefinitelyTyped/blob/551eef84346f7141a6f52da938f484f445b5814a/types/marked/index.d.ts#L433
  */
 export interface CodeGridMarkdownOptions {
   /**
