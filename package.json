@@ -10,7 +10,7 @@
   "dependencies": {
     "cheerio": "^0.22.0",
     "jade": "^1.11.0",
-    "marked": "^1.2.7",
+    "marked": "^2.0.0",
     "yargs": "^16.2.0"
   },
   "devDependencies": {
