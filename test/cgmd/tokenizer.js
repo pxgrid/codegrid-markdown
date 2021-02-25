@@ -43,6 +43,18 @@ describe('#tokenize', function() {
     });
   });
 
+  it('cgmdネストもエラー', function() {
+    assert.throws(function() {
+      Tokenizer.tokenize('[demo]\n# Nesting not allowed!\n[imgbox]');
+    });
+  });
+
+  it('cgmd違うので閉じるとエラー', function() {
+    assert.throws(function() {
+      Tokenizer.tokenize('[imgbox]\n# Wrong closing!\n[/column]');
+    });
+  });
+
   it('cgmdの規定のタイプ以外は無視', function() {
     var tokens = Tokenizer.tokenize([
       '```toml',
