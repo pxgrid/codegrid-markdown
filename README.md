@@ -156,6 +156,57 @@ cgmdパターンは、通常のMarkdownの中に混ぜて書くことができ�
 </div>
 ```
 
+### cgmd#tree
+
+```
+[tree]
+#### ファイルツリー
+- src/
+  - styles/
+    - base.css
+  - **components/**
+    - **a-lot-of-files/**
+[/tree]
+```
+
+```html
+<div class="Free">
+  <h4>ファイルツリー</h4>
+  <ul>
+    <li class="directory">
+      <details>
+        <summary>src/</summary>
+        <ul>
+          <li class="directory">
+            <details>
+              <summary>styles/</summary>
+              <ul>
+                <li class="file" data-file-type="css">base.css</li>
+              </ul>
+            </details>
+          </li>
+        </ul>
+          <li class="directory">
+            <details>
+              <summary><strong>components/</strong></summary>
+              <ul>
+                <li class="directory">
+                  <details>
+                    <summary><strong>a-lot-of-files/</strong></summary>
+                    <ul>
+                      <li data-file-type class="file">...</li>
+                    </ul>
+                  </details>
+                </li>
+              </ul>
+            </details>
+          </li>
+      </details>
+    </li>
+  </ul>
+</div>
+```
+
 ### cgmd#jade
 
 ```
@@ -207,6 +258,7 @@ GFMのコードブロックで、Syntaxに続けて`#コードのタイトル`�
 ```
 
 コードのタイトル指定がない場合、通常のMarkdownのコードブロックとして処理されます。
+
 
 ## LICENSE
 MIT
