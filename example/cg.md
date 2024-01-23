@@ -134,7 +134,7 @@ Grid Layout Moduleの理解を深めるには、そこに登場する用語を�
     - reset.css
     - space.css
     - ...
-  - components/
+  - **components/**
     - layout/
       - PageLayout.Astro
       - ...
@@ -154,7 +154,7 @@ Grid Layout Moduleの理解を深めるには、そこに登場する用語を�
     - **reset.css**
     - space.css
     - ...
-  - **components/**
+  - ~~components/~~
     - layout/
       - PageLayout.Astro
       - ...
