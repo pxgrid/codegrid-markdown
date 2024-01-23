@@ -122,3 +122,41 @@ Grid Layout Moduleの理解を深めるには、そこに登場する用語を�
 [demo]
 <iframe src="https://s3-ap-northeast-1.amazonaws.com/codegrid/2016-display-grid/demo/1/index.html" data-deferred></iframe>
 [/demo]
+
+見出しのないファイルツリー
+
+[tree]
+- src/
+  - styles/
+    - base.css
+    - color.css
+    - layout.css
+    - reset.css
+    - space.css
+    - ...
+  - **components/**
+    - layout/
+      - PageLayout.Astro
+      - ...
+    - **a-lot-of-files/**
+- package.json
+[/tree]
+
+見出しのあるファイルツリー
+
+[tree]
+### CSSとテンプレートの構成
+- src/
+  - styles/
+    - base.css
+    - color.css
+    - layout.css
+    - **reset.css**
+    - space.css
+    - ...
+  - ~~components/~~
+    - layout/
+      - PageLayout.Astro
+      - ...
+- package.json
+[/tree]
