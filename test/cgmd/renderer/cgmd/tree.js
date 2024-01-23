@@ -1,0 +1,15 @@
+"use strict";
+var assert = require("power-assert");
+var MDRenderer = require("../../../../lib/renderer/md");
+var renderTree = require("../../../../lib/renderer/cgmd/tree");
+var renderer = new MDRenderer();
+
+describe("CodeGridMarkdown - Renderer - cgmd", function () {
+  describe("#tree", function () {
+    it("レンダリングできること", function () {
+      var res = renderTree("foo", renderer);
+      var expect = '<div class="FileTree">\n<p>foo</p>\n\n</div>\n';
+      assert.equal(res, expect);
+    });
+  });
+});
