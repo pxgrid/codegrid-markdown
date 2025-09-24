@@ -3,15 +3,16 @@
 var CodeGridMarkdown = require('../lib');
 var CGMDRenderer = new CodeGridMarkdown();
 var fs   = require('fs');
-var argv = require('yargs')
+var yargs = require('yargs/yargs');
+var argv = yargs(process.argv.slice(2))
   .usage('Usage: $0 <path/to/your/text.md> [options]')
-  .demand(1)
+  .demandCommand(1, 'Provide a path to a markdown file or markdown text')
   .alias('o', 'out')
   .nargs('o', 1)
   .describe('o', 'Output path')
   .help('h')
   .alias('h', 'help')
-  .argv;
+  .parse();
 
 var inputPath  = argv._[0];
 var outputPath = argv.o || null;
