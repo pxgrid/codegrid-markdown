@@ -14,7 +14,7 @@
     "yargs": "^18.0.0"
   },
   "devDependencies": {
-    "gulp": "^4.0.2",
+    "gulp": "^5.0.1",
     "gulp-espower": "^1.1.0",
     "gulp-mocha": "^7.0.2",
     "power-assert": "^1.6.1"
