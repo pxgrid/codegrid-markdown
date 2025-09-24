@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "cheerio": "^0.22.0",
-    "marked": "^4.3.0",
+    "marked": "^7.0.5",
     "pug": "^3.0.3",
     "yargs": "^18.0.0"
   },
