@@ -5,10 +5,11 @@ const CGMDRenderer = new CodeGridMarkdown();
 const fs = require('node:fs');
 const { parseArgs } = require('node:util');
 
-const usage = 'Usage: cgmd <path/to/your/text.md> [options]\n\n' +
-  'Options:\n' +
-  '  -o, --out <path>   Output path\n' +
-  '  -h, --help         Show help';
+const usage = `Usage: cgmd <path/to/your/text.md> [options]
+
+Options:
+  -o, --out <path>   Output path
+  -h, --help         Show help`;
 
 let args;
 try {
