@@ -1,5 +1,6 @@
 'use strict';
-var assert     = require('power-assert');
+var assert = require('node:assert/strict');
+var { describe, it } = require('node:test');
 var renderJade =  require('../../../../lib/renderer/cgmd/jade');
 
 describe('CodeGridMarkdown - Renderer - cgmd', function() {

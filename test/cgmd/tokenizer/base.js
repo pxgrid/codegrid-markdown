@@ -1,5 +1,6 @@
 'use strict';
-var assert      = require('power-assert');
+var assert = require('node:assert/strict');
+var { describe, it } = require('node:test');
 var Token       = require('../../../lib/tokenizer/token/base');
 var TOKEN_TYPES = require('../../../lib/tokenizer/token_types');
 
