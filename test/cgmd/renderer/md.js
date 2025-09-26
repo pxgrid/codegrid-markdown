@@ -1,6 +1,6 @@
 'use strict';
 var assert     = require('power-assert');
-var marked     = require('marked');
+var { marked } = require('marked');
 var MD_Token   = require('../../../lib/tokenizer/token/md');
 var MDRenderer = require('../../../lib/renderer/md');
 var renderer = new MDRenderer();
@@ -23,7 +23,7 @@ describe('#renderToken', function() {
 
 describe('#render', function() {
   it('markedと同じ内容でふつうのMarkdownをレンダリングできること', function() {
-    var res1    = renderer.render('- foo\n -bar');
+    var res1    = renderer.render('- foo\n- bar');
     var expect1 = marked('- foo\n- bar');
 
     assert.equal(res1, expect1);
