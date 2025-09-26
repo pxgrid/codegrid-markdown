@@ -32,8 +32,6 @@ cgmd ./path/to/your.md -o ./path/to/your.html
 cgmd '# foo'
 ```
 
-Browserifyから利用する場合、ブラウザ環境でも利用可能です。
-
 ## 記法
 
 - cgmdとしての拡張記法
