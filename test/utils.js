@@ -1,7 +1,7 @@
 'use strict';
-var assert = require('node:assert/strict');
-var { describe, it } = require('node:test');
-var utils = require('../lib/utils');
+const assert = require('node:assert/strict');
+const { describe, it } = require('node:test');
+const utils = require('../lib/utils');
 
 describe('utils', function() {
 
@@ -12,7 +12,7 @@ describe('#inherits', function() {
   function S() {}
   S.prototype.bar = function() { return 'bar'; };
   utils.inherits(C, S);
-  var c = new C();
+  const c = new C();
 
   it('ちゃんと継承できてること', function() {
     assert.equal(c.bar(), 'bar');

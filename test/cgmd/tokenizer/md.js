@@ -1,13 +1,13 @@
 'use strict';
-var assert = require('node:assert/strict');
-var { describe, it } = require('node:test');
-var MD_Token = require('../../../lib/tokenizer/token/md');
+const assert = require('node:assert/strict');
+const { describe, it } = require('node:test');
+const MD_Token = require('../../../lib/tokenizer/token/md');
 
 describe('CodeGridMarkdown - Token - MD', function() {
 
 
 describe('#constructor', function() {
-  var token = new MD_Token();
+  const token = new MD_Token();
 
   it('type', function() {
     assert(token.isTypeMD() === true);
@@ -16,7 +16,7 @@ describe('#constructor', function() {
 });
 
 describe('#getBody', function() {
-  var token = new MD_Token();
+  const token = new MD_Token();
   token.addBody('a');
   token.addBody('b');
   token.addBody('c');
@@ -28,4 +28,3 @@ describe('#getBody', function() {
 
 
 });
-
