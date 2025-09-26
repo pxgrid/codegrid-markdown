@@ -10,14 +10,14 @@ npm i codegrid-markdown
 
 ### Node
 ```javascript
-var CodeGridMarkdown = require('codegrid-markdown');
+const CodeGridMarkdown = require('codegrid-markdown');
 
-var CGMDRenderer = new CodeGridMarkdown({
+const CGMDRenderer = new CodeGridMarkdown({
   // options for marked
 });
 
-var str = fs.readFileSync(__dirname + '/cg.md', 'utf-8');
-var htmlStr = CGMDRenderer.render(str);
+const str = fs.readFileSync(__dirname + '/cg.md', 'utf-8');
+const htmlStr = CGMDRenderer.render(str);
 ```
 
 ### CLI

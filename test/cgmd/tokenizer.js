@@ -1,7 +1,7 @@
 'use strict';
-var assert = require('node:assert/strict');
-var { describe, it } = require('node:test');
-var Tokenizer = require('../../lib/tokenizer');
+const assert = require('node:assert/strict');
+const { describe, it } = require('node:test');
+const Tokenizer = require('../../lib/tokenizer');
 
 describe('CodeGridMarkdown - Tokenizer', function() {
 
@@ -15,19 +15,19 @@ describe('#tokenize', function() {
   });
 
   it('mdとしてトークン化', function() {
-    var tokens = Tokenizer.tokenize('# This is normal markdown.');
+    const tokens = Tokenizer.tokenize('# This is normal markdown.');
     assert.equal(tokens.length, 1);
     assert(tokens[0].isTypeMD());
   });
 
   it('cgmdとしてトークン化', function() {
-    var tokens = Tokenizer.tokenize('[note]\n# This is cg markdown.\n[/note]');
+    const tokens = Tokenizer.tokenize('[note]\n# This is cg markdown.\n[/note]');
     assert.equal(tokens.length, 1);
     assert(tokens[0].isTypeCGMD());
   });
 
   it('あわせてトークン化', function() {
-    var tokens = Tokenizer.tokenize([
+    const tokens = Tokenizer.tokenize([
       '# This is normal markdown.\n',
       '[note]\n# This is cg markdown.\n[/note]',
       '# This is normal markdown too.\n'
@@ -57,7 +57,7 @@ describe('#tokenize', function() {
   });
 
   it('cgmdの規定のタイプ以外は無視', function() {
-    var tokens = Tokenizer.tokenize([
+    const tokens = Tokenizer.tokenize([
       '```toml',
       '[build]',
       '  npm run build',
@@ -68,7 +68,7 @@ describe('#tokenize', function() {
   });
 
   it('cgmdの規定のタイプでも、行頭でないなら無視', function() {
-    var tokens = Tokenizer.tokenize([
+    const tokens = Tokenizer.tokenize([
       '```js',
       'useEffect(',
       '  () => {',

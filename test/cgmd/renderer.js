@@ -1,30 +1,30 @@
 'use strict';
-var assert = require('node:assert/strict');
-var { describe, it } = require('node:test');
-var Tokenizer = require('../../lib/tokenizer');
-var Renderer  = require('../../lib/renderer');
+const assert = require('node:assert/strict');
+const { describe, it } = require('node:test');
+const Tokenizer = require('../../lib/tokenizer');
+const Renderer  = require('../../lib/renderer');
 
 describe('CodeGridMarkdown - Renderer', function() {
 
 
 describe('#render', function() {
-  var renderer = new Renderer();
+  const renderer = new Renderer();
 
   it('cgmdトークン', function() {
-    var md   = '[note]\n# h1\n[/note]';
-    var html = '' +
+    const md   = '[note]\n# h1\n[/note]';
+    const html = '' +
       '<div class="Note">\n' +
         '<h1>h1</h1>\n' +
       '\n</div>\n';
-    var token = Tokenizer.tokenize(md)[0];
+    const token = Tokenizer.tokenize(md)[0];
     assert.equal(renderer.render(token), html);
   });
 
   it('mdトークン', function() {
-    var md   = '# h1';
-    var html = '' +
+    const md   = '# h1';
+    const html = '' +
       '<h1>h1</h1>\n';
-    var token = Tokenizer.tokenize(md)[0];
+    const token = Tokenizer.tokenize(md)[0];
     assert.equal(renderer.render(token), html);
   });
 });

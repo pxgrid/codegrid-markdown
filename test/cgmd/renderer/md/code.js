@@ -1,33 +1,33 @@
 'use strict';
-var assert = require('node:assert/strict');
-var { describe, it } = require('node:test');
-var MDRenderer = require('../../../../lib/renderer/md');
-var renderer = new MDRenderer();
+const assert = require('node:assert/strict');
+const { describe, it } = require('node:test');
+const MDRenderer = require('../../../../lib/renderer/md');
+const renderer = new MDRenderer();
 
 describe('CodeGridMarkdown - Renderer - md', function() {
 
 
 describe('#code', function() {
   it('言語指定がない場合はmarked標準', function() {
-    var html = renderer.render('```\nhoge\n```');
-    var expect = '<pre><code>hoge\n</code></pre>\n';
+    const html = renderer.render('```\nhoge\n```');
+    const expect = '<pre><code>hoge\n</code></pre>\n';
     assert.equal(html, expect);
   });
   it('言語指定だけある場合もmarked標準', function() {
-    var html = renderer.render('```html\nhoge\n```');
-    var expect = '<pre><code class="lang-html">hoge\n</code></pre>\n';
+    const html = renderer.render('```html\nhoge\n```');
+    const expect = '<pre><code class="lang-html">hoge\n</code></pre>\n';
     assert.equal(html, expect);
   });
   it('タイトル指定が雑な場合もmarked標準', function() {
-    var html = renderer.render('```html#\nhoge\n```');
-    var expect = '<pre><code class="lang-html">hoge\n</code></pre>\n';
+    const html = renderer.render('```html#\nhoge\n```');
+    const expect = '<pre><code class="lang-html">hoge\n</code></pre>\n';
     assert.equal(html, expect);
   });
   it('言語とタイトル指定が正しい場合は拡張したやつ', function() {
-    var html1 = renderer.render('```html#title\nhoge\n```');
+    const html1 = renderer.render('```html#title\nhoge\n```');
     // スペースがあっても気にしない
-    var html2 = renderer.render('```html #title\nhoge\n```');
-    var expect = '' +
+    const html2 = renderer.render('```html #title\nhoge\n```');
+    const expect = '' +
       '<section class="CG2-livecode">\n' +
         '<header class="CG2-livecode__header">\n' +
           '<div class="CG2-livecode__label">title</div>\n' +

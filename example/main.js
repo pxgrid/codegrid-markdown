@@ -1,11 +1,11 @@
 'use strict';
-var fs               = require('fs');
-var CodeGridMarkdown = require('../lib/index');
+const fs               = require('fs');
+const CodeGridMarkdown = require('../lib/index');
 
-var CGMDRenderer = new CodeGridMarkdown({
+const CGMDRenderer = new CodeGridMarkdown({
   // options for marked
 });
-var str = fs.readFileSync(__dirname + '/cg.md', 'utf-8');
+const str = fs.readFileSync(__dirname + '/cg.md', 'utf-8');
 
-var htmlStr = CGMDRenderer.render(str);
+const htmlStr = CGMDRenderer.render(str);
 console.log(htmlStr);
