@@ -10,7 +10,8 @@ npm i codegrid-markdown
 
 ### Node
 ```javascript
-const CodeGridMarkdown = require('codegrid-markdown');
+import fs from 'node:fs';
+import CodeGridMarkdown from 'codegrid-markdown';
 
 const CGMDRenderer = new CodeGridMarkdown({
   // options for marked

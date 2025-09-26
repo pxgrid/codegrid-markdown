@@ -1,6 +1,5 @@
-'use strict';
-const fs               = require('fs');
-const CodeGridMarkdown = require('../lib/index');
+import fs from 'node:fs';
+import CodeGridMarkdown from '../lib/index.js';
 
 const CGMDRenderer = new CodeGridMarkdown({
   // options for marked

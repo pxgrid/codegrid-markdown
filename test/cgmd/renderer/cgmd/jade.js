@@ -1,7 +1,6 @@
-'use strict';
-const assert = require('node:assert/strict');
-const { describe, it } = require('node:test');
-const renderJade =  require('../../../../lib/renderer/cgmd/jade');
+import assert from 'node:assert/strict';
+import { describe, it } from 'node:test';
+import renderJade from '../../../../lib/renderer/cgmd/jade.js';
 
 describe('CodeGridMarkdown - Renderer - cgmd', function() {
 
@@ -13,6 +12,4 @@ describe('#jade', function() {
     assert.equal(res, expect);
   });
 });
-
-
 });

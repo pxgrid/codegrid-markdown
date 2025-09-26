@@ -1,8 +1,7 @@
-'use strict';
-const assert = require('node:assert/strict');
-const { describe, it } = require('node:test');
-const Token       = require('../../../lib/tokenizer/token/base');
-const TOKEN_TYPES = require('../../../lib/tokenizer/token_types');
+import assert from 'node:assert/strict';
+import { describe, it } from 'node:test';
+import Token from '../../../lib/tokenizer/token/base.js';
+import TOKEN_TYPES from '../../../lib/tokenizer/token_types.js';
 
 describe('CodeGridMarkdown - Token - Base', function() {
 
@@ -17,8 +16,6 @@ describe('#constructor', function() {
     });
   });
 });
-
-
 describe('#addBody', function() {
   const token = new Token(TOKEN_TYPES.MD);
 

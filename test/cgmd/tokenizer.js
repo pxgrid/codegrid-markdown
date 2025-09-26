@@ -1,7 +1,6 @@
-'use strict';
-const assert = require('node:assert/strict');
-const { describe, it } = require('node:test');
-const Tokenizer = require('../../lib/tokenizer');
+import assert from 'node:assert/strict';
+import { describe, it } from 'node:test';
+import Tokenizer from '../../lib/tokenizer.js';
 
 describe('CodeGridMarkdown - Tokenizer', function() {
 
@@ -82,6 +81,4 @@ describe('#tokenize', function() {
     assert(tokens[0].isTypeMD());
   });
 });
-
-
 });
