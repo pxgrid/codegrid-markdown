@@ -13,15 +13,9 @@
     "pug": "^3.0.3",
     "yargs": "^18.0.0"
   },
-  "devDependencies": {
-    "gulp": "^5.0.1",
-    "gulp-espower": "^1.1.0",
-    "gulp-mocha": "^9.0.0",
-    "power-assert": "^1.6.1"
-  },
   "scripts": {
-    "test": "gulp test",
-    "test:watch": "gulp test:watch",
+    "test": "node --test",
+    "test:watch": "node --test --watch",
     "example": "node example/main.js > example/rendered.html"
   },
   "repository": {

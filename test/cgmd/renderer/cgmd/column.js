@@ -1,5 +1,6 @@
 'use strict';
-var assert     = require('power-assert');
+var assert = require('node:assert/strict');
+var { describe, it } = require('node:test');
 var MDRenderer = require('../../../../lib/renderer/md');
 var renderColumn =  require('../../../../lib/renderer/cgmd/column');
 var renderer = new MDRenderer();

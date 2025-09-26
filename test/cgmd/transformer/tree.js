@@ -1,5 +1,6 @@
 "use strict";
-var assert = require("power-assert");
+var assert = require("node:assert/strict");
+var { describe, it } = require("node:test");
 var Transformer = require("../../../lib/transformer");
 
 describe("CodeGridMarkdown - Transformer - Tree", function () {

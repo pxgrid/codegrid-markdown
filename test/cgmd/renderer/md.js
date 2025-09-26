@@ -1,5 +1,6 @@
 'use strict';
-var assert     = require('power-assert');
+var assert = require('node:assert/strict');
+var { describe, it } = require('node:test');
 var { marked } = require('marked');
 var MD_Token   = require('../../../lib/tokenizer/token/md');
 var MDRenderer = require('../../../lib/renderer/md');
