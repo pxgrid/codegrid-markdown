@@ -10,8 +10,7 @@
   "dependencies": {
     "cheerio": "^1.1.2",
     "marked": "^7.0.5",
-    "pug": "^3.0.3",
-    "yargs": "^18.0.0"
+    "pug": "^3.0.3"
   },
   "scripts": {
     "test": "node --test",
