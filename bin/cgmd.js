@@ -49,7 +49,7 @@ try {
 const htmlStr = CGMDRenderer.render(inputStr);
 
 if (outputPath) {
-  fs.writeFile(outputPath, htmlStr, { encoding: 'utf8' }, function(err) {
+  fs.writeFile(outputPath, htmlStr, { encoding: 'utf8' }, (err) => {
     if (err) { throw err; }
     console.log('%s created.', outputPath);
   });
