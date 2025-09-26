@@ -1,8 +1,8 @@
-'use strict';
-const assert = require('node:assert/strict');
-const { describe, it } = require('node:test');
-const MDRenderer = require('../../../../lib/renderer/md');
-const renderColumn =  require('../../../../lib/renderer/cgmd/column');
+import assert from 'node:assert/strict';
+import { describe, it } from 'node:test';
+import MDRenderer from '../../../../lib/renderer/md.js';
+import renderColumn from '../../../../lib/renderer/cgmd/column.js';
+
 const renderer = new MDRenderer();
 
 describe('CodeGridMarkdown - Renderer - cgmd', function() {
@@ -15,6 +15,4 @@ describe('#column', function() {
     assert.equal(res, expect);
   });
 });
-
-
 });

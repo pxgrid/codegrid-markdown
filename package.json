@@ -2,6 +2,7 @@
   "name": "codegrid-markdown",
   "version": "6.0.0",
   "description": "CodeGrid-specified markdown processor.",
+  "type": "module",
   "main": "lib/index.js",
   "types": "index.d.ts",
   "bin": {

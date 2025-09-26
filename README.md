@@ -10,13 +10,14 @@ npm i codegrid-markdown
 
 ### Node
 ```javascript
-const CodeGridMarkdown = require('codegrid-markdown');
+import fs from 'node:fs';
+import CodeGridMarkdown from 'codegrid-markdown';
 
 const CGMDRenderer = new CodeGridMarkdown({
   // options for marked
 });
 
-const str = fs.readFileSync(__dirname + '/cg.md', 'utf-8');
+const str = fs.readFileSync(import.meta.dirname + '/cg.md', 'utf-8');
 const htmlStr = CGMDRenderer.render(str);
 ```
 
@@ -30,8 +31,6 @@ cgmd ./path/to/your.md -o ./path/to/your.html
 # can also
 cgmd '# foo'
 ```
-
-Browserifyから利用する場合、ブラウザ環境でも利用可能です。
 
 ## 記法
 
