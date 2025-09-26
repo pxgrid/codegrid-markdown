@@ -3,19 +3,42 @@
 var CodeGridMarkdown = require('../lib');
 var CGMDRenderer = new CodeGridMarkdown();
 var fs   = require('fs');
-var yargs = require('yargs/yargs');
-var argv = yargs(process.argv.slice(2))
-  .usage('Usage: $0 <path/to/your/text.md> [options]')
-  .demandCommand(1, 'Provide a path to a markdown file or markdown text')
-  .alias('o', 'out')
-  .nargs('o', 1)
-  .describe('o', 'Output path')
-  .help('h')
-  .alias('h', 'help')
-  .parse();
+var parseArgs = require('node:util').parseArgs;
 
-var inputPath  = argv._[0];
-var outputPath = argv.o || null;
+var usage = 'Usage: cgmd <path/to/your/text.md> [options]\n\n' +
+  'Options:\n' +
+  '  -o, --out <path>   Output path\n' +
+  '  -h, --help         Show help';
+
+var args;
+try {
+  args = parseArgs({
+    args: process.argv.slice(2),
+    options: {
+      out: { type: 'string', short: 'o' },
+      help: { type: 'boolean', short: 'h' }
+    },
+    allowPositionals: true
+  });
+} catch (err) {
+  console.error(err.message);
+  console.error(usage);
+  process.exit(1);
+}
+
+if (args.values.help) {
+  console.log(usage);
+  process.exit(0);
+}
+
+if (args.positionals.length === 0) {
+  console.error('Provide a path to a markdown file or markdown text.');
+  console.error(usage);
+  process.exit(1);
+}
+
+var inputPath  = args.positionals[0];
+var outputPath = args.values.out || null;
 
 var inputStr = '';
 try {
