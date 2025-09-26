@@ -1,16 +1,16 @@
 #!/usr/bin/env node
 'use strict';
-var CodeGridMarkdown = require('../lib');
-var CGMDRenderer = new CodeGridMarkdown();
-var fs = require('node:fs');
-var parseArgs = require('node:util').parseArgs;
+const CodeGridMarkdown = require('../lib');
+const CGMDRenderer = new CodeGridMarkdown();
+const fs = require('node:fs');
+const { parseArgs } = require('node:util');
 
-var usage = 'Usage: cgmd <path/to/your/text.md> [options]\n\n' +
+const usage = 'Usage: cgmd <path/to/your/text.md> [options]\n\n' +
   'Options:\n' +
   '  -o, --out <path>   Output path\n' +
   '  -h, --help         Show help';
 
-var args;
+let args;
 try {
   args = parseArgs({
     args: process.argv.slice(2),
@@ -37,16 +37,16 @@ if (args.positionals.length === 0) {
   process.exit(1);
 }
 
-var inputPath  = args.positionals[0];
-var outputPath = args.values.out || null;
+const inputPath  = args.positionals[0];
+const outputPath = args.values.out || null;
 
-var inputStr = '';
+let inputStr = '';
 try {
   inputStr = fs.readFileSync(inputPath, { encoding: 'utf8' });
 } catch(e) {
   inputStr = inputPath;
 }
-var htmlStr = CGMDRenderer.render(inputStr);
+const htmlStr = CGMDRenderer.render(inputStr);
 
 if (outputPath) {
   fs.writeFile(outputPath, htmlStr, { encoding: 'utf8' }, function(err) {
