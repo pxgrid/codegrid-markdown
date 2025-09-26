@@ -2,7 +2,7 @@
 'use strict';
 var CodeGridMarkdown = require('../lib');
 var CGMDRenderer = new CodeGridMarkdown();
-var fs   = require('fs');
+var fs = require('node:fs');
 var parseArgs = require('node:util').parseArgs;
 
 var usage = 'Usage: cgmd <path/to/your/text.md> [options]\n\n' +
