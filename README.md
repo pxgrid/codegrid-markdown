@@ -1,14 +1,17 @@
 # codegrid-markdown
-CodeGrid-specified markdown processor.
+
+[CodeGrid](https://www.codegrid.net/)の記事で使われているMarkdown拡張記法を含んだ、[markded](https://marked.js.org/)ベースのMarkdownライブラリーです。
 
 ## 使い方
-### Install
+
+### パッケージのインストール
 
 ```sh
 npm i codegrid-markdown
 ```
 
-### Node
+### Node.jsスクリプトでの実行
+
 ```javascript
 import fs from 'node:fs';
 import CodeGridMarkdown from 'codegrid-markdown';
@@ -21,7 +24,8 @@ const str = fs.readFileSync(import.meta.dirname + '/cg.md', 'utf-8');
 const htmlStr = CGMDRenderer.render(str);
 ```
 
-### CLI
+### CLIでの実行
+
 ```sh
 cgmd ./path/to/your.md
 
@@ -32,16 +36,18 @@ cgmd ./path/to/your.md -o ./path/to/your.html
 cgmd '# foo'
 ```
 
-## 記法
+## CGMD記法
 
-- cgmdとしての拡張記法
-- mdの拡張記法
+以下の2パターンの拡張があります。
 
-この2パターンの拡張があります。
+- CodeGridで使うコラムや注釈を実現するCGMD拡張ブロック
+- Markdownのコードブロックにタイトルを付与する拡張
 
-cgmdパターンは、通常のMarkdownの中に混ぜて書くことができ、`[foo]通常のMarkdownテキスト[/foo]`の形式で記述します。
+CGMD拡張ブロックは、互いにネストできません。
 
-### cgmd#note
+### note
+
+本文を`.Note`で包み、内部の見出しをタイトルとして表示する注釈ボックスを作成します。
 
 ```
 [note]
@@ -60,7 +66,9 @@ cgmdパターンは、通常のMarkdownの中に混ぜて書くことができ�
 </div>
 ```
 
-### cgmd#column
+### column
+
+`.Column`で囲んでコラム風の補足ブロックに仕立てます。
 
 ```
 [column]
@@ -79,7 +87,9 @@ cgmdパターンは、通常のMarkdownの中に混ぜて書くことができ�
 </div>
 ```
 
-### cgmd#demo
+### demo
+
+`.Demo`コンテナを生成し、インラインフレームでのデモ表示を行います。ソースリンクの設置や遅延iframeにも対応します。
 
 ```
 [demo]
@@ -134,7 +144,9 @@ cgmdパターンは、通常のMarkdownの中に混ぜて書くことができ�
 [/demo]
 ```
 
-### cgmd#imgbox
+### imgbox
+
+`.ImgBox`の`<figure>`に変換し、タイトル、画像とキャプションをひとまとまりに表示します。
 
 ```
 [imgbox]
@@ -155,7 +167,9 @@ cgmdパターンは、通常のMarkdownの中に混ぜて書くことができ�
 </div>
 ```
 
-### cgmd#tree
+### tree
+
+Markdownのリストを`<details>`付きのインタラクティブなファイルツリーに組み替えます。
 
 ```
 [tree]
@@ -206,11 +220,9 @@ cgmdパターンは、通常のMarkdownの中に混ぜて書くことができ�
 </div>
 ```
 
-これらの記法は、互いにネストすることはできません。
+### code（タイトルつき）
 
-次に、mdパターン。
-
-### md#code
+Markdownのコードブロックにタイトルを付与する拡張です。
 
 <pre>
 ```html#素敵なdiv
@@ -236,5 +248,34 @@ GFMのコードブロックで、Syntaxに続けて`#コードのタイトル`�
 コードのタイトル指定がない場合、通常のMarkdownのコードブロックとして処理されます。
 
 
+## コードの修正・機能追加
+
+メンテナンスモードに入っていますが、バグ修正や軽微な機能追加を行いたい場合は以下を参考にしてください。
+
+### ランタイムの全体像
+
+`lib/index.js`がトークナイザ・レンダラ・トランスフォーマを束ねてMarkdownをHTMLに変換します。新しい機能はここから呼び出される既存の拡張点を利用してください。処理の流れを追うには`lib/tokenizer/`→`lib/renderer/`→`lib/transformer/`の順に読むと把握しやすいです。
+
+### 拡張記法
+
+cgmdのレンダラは`lib/renderer/cgmd/`に追加し、`lib/renderer/cgmd.js`に登録します。DOMレベルの整形は`lib/transformer/`に置きます。小さな単位のレンダラを作り、必要に応じて`lib/renderer/md/`の既存実装を参考にしてください。
+
+### CLIとサンプル
+
+`bin/cgmd.js`が`cgmd`コマンドを提供します。ローカルでHTML出力を試すには`example/main.js`を使うか`npm run example`を実行して挙動を確認できます。CLIの引数追加や既定値の変更は`bin/cgmd.js`を編集してください。
+
+### テスト
+
+テストは`test/`以下に配置し、Node組み込みテストで実行します。全体の実行は`npm test`、反復実行は`npm run test:watch`を使います。レンダラ関連は`test/cgmd/renderer`、トークナイザは`test/cgmd/tokenizer`、トランスフォーマは`test/cgmd/transformer`を参照・追加します。
+
+### 開発の流れ
+
+- 依存を整える：`npm ci`
+- 実装を加える：拡張は`lib/renderer/cgmd/`、DOM整形は`lib/transformer/`
+- 動作確認：サンプルの`npm run example`または最小入力での単体実行
+- テスト：失敗→修正→`npm run test:watch`で反復
+- ドキュメント：新しい記法やオプションは`README.md`に追記
+
 ## LICENSE
-MIT
+
+[MIT License](./LICENSE)
