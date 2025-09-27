@@ -80,5 +80,12 @@ describe('#tokenize', function() {
     assert.equal(tokens.length, 1);
     assert(tokens[0].isTypeMD());
   });
+
+  it('CRLF改行でも余分な空行を作らない', function() {
+    const tokens = Tokenizer.tokenize('[note]\r\n# Title\r\n[/note]');
+    assert.equal(tokens.length, 1);
+    assert(tokens[0].isTypeCGMD());
+    assert.equal(tokens[0].getBody(), '# Title');
+  });
 });
 });
