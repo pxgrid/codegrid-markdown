@@ -1,4 +1,4 @@
-import assert from 'node:assert/strict';
+import assert from 'node:assert';
 import { describe, it } from 'node:test';
 import MD_Token from '../../../lib/tokenizer/token/md.js';
 
@@ -9,8 +9,8 @@ describe('#constructor', function() {
   const token = new MD_Token();
 
   it('type', function() {
-    assert(token.isTypeMD() === true);
-    assert(token.isTypeCGMD() === false);
+    assert(token.isTypeMD());
+    assert(!token.isTypeCGMD());
   });
 });
 
@@ -21,7 +21,7 @@ describe('#getBody', function() {
   token.addBody('c');
 
   it('本文が取れること', function() {
-    assert.equal(token.getBody(), 'a\nb\nc');
+    assert(token.getBody() === 'a\nb\nc');
   });
 });
 });

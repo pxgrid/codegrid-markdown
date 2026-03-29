@@ -1,4 +1,4 @@
-import assert from 'node:assert/strict';
+import assert from 'node:assert';
 import { describe, it } from 'node:test';
 import CodeGridMarkdown from '../../lib/index.js';
 
@@ -11,7 +11,7 @@ describe('#constructor', function() {
     const expect = '<p>&lt;img&gt;</p>\n';
 
     const cgmd = new CodeGridMarkdown({ sanitize: true });
-    assert.equal(cgmd.render(original), expect);
+    assert(cgmd.render(original) === expect);
   });
 });
 
