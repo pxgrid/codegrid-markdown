@@ -32,7 +32,10 @@
   "keywords": [
     "markdown"
   ],
-  "author": "leader22",
+  "author": "PixelGrid",
+  "contributors": [
+    "leader22"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/pxgrid/codegrid-markdown/issues"
