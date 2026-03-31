@@ -7,11 +7,15 @@ describe('CodeGridMarkdown', function() {
 
 describe('#constructor', function() {
   it('markedにオプションが渡せる', function() {
-    const original = '<img>';
-    const expect = '<p>&lt;img&gt;</p>\n';
+    const original = 'line1\nline2';
+    const withBreaks = '<p>line1<br>line2</p>\n';
+    const withoutBreaks = '<p>line1\nline2</p>\n';
 
-    const cgmd = new CodeGridMarkdown({ sanitize: true });
-    assert(cgmd.render(original) === expect);
+    const cgmd = new CodeGridMarkdown({ breaks: true });
+    assert(cgmd.render(original) === withBreaks);
+
+    const cgmdDefault = new CodeGridMarkdown();
+    assert(cgmdDefault.render(original) === withoutBreaks);
   });
 });
 
