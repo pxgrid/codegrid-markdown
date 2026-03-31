@@ -15,12 +15,12 @@ describe('#code', function() {
   });
   it('言語指定だけある場合もmarked標準', function() {
     const html = renderer.render('```html\nhoge\n```');
-    const expect = '<pre><code class="lang-html">hoge\n</code></pre>\n';
+    const expect = '<pre><code class="language-html">hoge\n</code></pre>\n';
     assert(html === expect);
   });
   it('タイトル指定が雑な場合もmarked標準', function() {
     const html = renderer.render('```html#\nhoge\n```');
-    const expect = '<pre><code class="lang-html">hoge\n</code></pre>\n';
+    const expect = '<pre><code class="language-html">hoge\n</code></pre>\n';
     assert(html === expect);
   });
   it('言語とタイトル指定が正しい場合は拡張したやつ', function() {
@@ -33,7 +33,7 @@ describe('#code', function() {
           '<div class="CG2-livecode__label">title</div>\n' +
         '</header>\n' +
         '<div class="CG2-livecode__body">' +
-          '<pre><code class="lang-html">hoge\n</code></pre>\n' +
+          '<pre><code class="language-html">hoge\n</code></pre>\n' +
         '</div>\n' +
       '</section>\n';
     assert(html1 === expect);
