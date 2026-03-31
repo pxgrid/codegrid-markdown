@@ -7,7 +7,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const CLI = join(__dirname, '../../bin/cgmd.js');
 
 function runCLI(args) {
-  return spawnSync('node', [CLI, ...args], { encoding: 'utf8' });
+  return spawnSync(process.execPath, [CLI, ...args], { encoding: 'utf8', timeout: 10000 });
 }
 
 describe('CodeGridMarkdown - CLI', function () {
