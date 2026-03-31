@@ -10,8 +10,7 @@
   },
   "dependencies": {
     "cheerio": "^1.1.2",
-    "marked": "^7.0.5",
-    "pug": "^3.0.3"
+    "marked": "^7.0.5"
   },
   "devDependencies": {
     "@power-assert/node": "^0.6.0"
