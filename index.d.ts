@@ -4,10 +4,12 @@ export default class CodeGridMarkdown {
 }
 
 /**
- * Basically the same as MarkedOptions.
- * Except for `renderer`, `headerIds`, `langPrefix` options.
+ * Options for CodeGridMarkdown.
  *
- * See also https://github.com/DefinitelyTyped/DefinitelyTyped/blob/551eef84346f7141a6f52da938f484f445b5814a/types/marked/index.d.ts#L433
+ * Basically the same as MarkedOptions.
+ * `renderer`, `headerIds`, `langPrefix` are used internally and cannot be overridden.
+ *
+ * See also https://marked.js.org/using_advanced#options
  */
 export interface CodeGridMarkdownOptions {
   /**
@@ -31,33 +33,9 @@ export interface CodeGridMarkdownOptions {
   headerPrefix?: string;
 
   /**
-   * A function to highlight code blocks. The function takes three arguments: code, lang, and callback.
-   */
-  highlight?(
-    code: string,
-    lang: string,
-    callback?: (error: any | undefined, code: string) => void,
-  ): string;
-
-  /**
-   * Mangle autolinks (<email@domain.com>).
-   */
-  mangle?: boolean;
-
-  /**
    * Conform to obscure parts of markdown.pl as much as possible. Don't fix any of the original markdown bugs or poor behavior.
    */
   pedantic?: boolean;
-
-  /**
-   * Sanitize the output. Ignore any HTML that has been input.
-   */
-  sanitize?: boolean;
-
-  /**
-   * Optionally sanitize found HTML with a sanitizer function.
-   */
-  sanitizer?(html: string): string;
 
   /**
    * Shows an HTML error message when rendering fails.
@@ -65,19 +43,9 @@ export interface CodeGridMarkdownOptions {
   silent?: boolean;
 
   /**
-   * Use smarter list behavior than the original markdown. May eventually be default with the old behavior moved into pedantic.
-   */
-  smartLists?: boolean;
-
-  /**
-   * Use "smart" typograhic punctuation for things like quotes and dashes.
+   * Use "smart" typographic punctuation for things like quotes and dashes.
    */
   smartypants?: boolean;
-
-  /**
-   * Enable GFM tables. This option requires the gfm option to be true.
-   */
-  tables?: boolean;
 
   /**
    * Generate closing slash for self-closing tags (<br/> instead of <br>)
