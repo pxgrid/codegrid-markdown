@@ -1,7 +1,6 @@
-'use strict';
-const assert = require('node:assert/strict');
-const { describe, it } = require('node:test');
-const Transformer = require('../../lib/transformer');
+import assert from 'node:assert/strict';
+import { describe, it } from 'node:test';
+import Transformer from '../../lib/transformer.js';
 
 describe('CodeGridMarkdown - Transformer', function() {
 
@@ -13,6 +12,4 @@ describe('#transform', function() {
     assert.equal(htmlStr, transformed);
   });
 });
-
-
 });

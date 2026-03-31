@@ -1,9 +1,9 @@
-'use strict';
-const assert = require('node:assert/strict');
-const { describe, it } = require('node:test');
-const CGMD_Token   = require('../../../lib/tokenizer/token/cgmd');
-const MDRenderer   = require('../../../lib/renderer/md');
-const CGMDRenderer = require('../../../lib/renderer/cgmd');
+import assert from 'node:assert/strict';
+import { describe, it } from 'node:test';
+import CGMD_Token from '../../../lib/tokenizer/token/cgmd.js';
+import MDRenderer from '../../../lib/renderer/md.js';
+import CGMDRenderer from '../../../lib/renderer/cgmd.js';
+
 const renderer = new CGMDRenderer(new MDRenderer());
 
 describe('CodeGridMarkdown - Renderer - cgmd', function() {
@@ -21,6 +21,4 @@ describe('#renderToken', function() {
     assert.equal(res, expect);
   });
 });
-
-
 });

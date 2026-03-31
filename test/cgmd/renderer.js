@@ -1,8 +1,7 @@
-'use strict';
-const assert = require('node:assert/strict');
-const { describe, it } = require('node:test');
-const Tokenizer = require('../../lib/tokenizer');
-const Renderer  = require('../../lib/renderer');
+import assert from 'node:assert/strict';
+import { describe, it } from 'node:test';
+import Tokenizer from '../../lib/tokenizer.js';
+import Renderer from '../../lib/renderer.js';
 
 describe('CodeGridMarkdown - Renderer', function() {
 
@@ -28,6 +27,4 @@ describe('#render', function() {
     assert.equal(renderer.render(token), html);
   });
 });
-
-
 });

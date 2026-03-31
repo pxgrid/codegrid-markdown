@@ -1,7 +1,6 @@
-'use strict';
-const assert = require('node:assert/strict');
-const { describe, it } = require('node:test');
-const CGMD_Token = require('../../../lib/tokenizer/token/cgmd');
+import assert from 'node:assert/strict';
+import { describe, it } from 'node:test';
+import CGMD_Token from '../../../lib/tokenizer/token/cgmd.js';
 
 describe('CodeGridMarkdown - Token - CGMD', function() {
 
@@ -14,7 +13,6 @@ describe('#constructor', function() {
     assert(token.isTypeMD() === false);
   });
 });
-
 describe('#getCGSyntax', function() {
   const token = new CGMD_Token();
   token.addBody('[note]');

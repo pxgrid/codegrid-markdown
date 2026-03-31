@@ -1,9 +1,9 @@
 #!/usr/bin/env node
-'use strict';
-const CodeGridMarkdown = require('../lib');
+import CodeGridMarkdown from '../lib/index.js';
+import fs from 'node:fs';
+import { parseArgs } from 'node:util';
+
 const CGMDRenderer = new CodeGridMarkdown();
-const fs = require('node:fs');
-const { parseArgs } = require('node:util');
 
 const usage = `Usage: cgmd <path/to/your/text.md> [options]
 
