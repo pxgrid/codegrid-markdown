@@ -39,5 +39,18 @@ describe('#code', function() {
     assert(html1 === expect);
     assert(html2 === expect);
   });
+  it('タイトルにHTML特殊文字が含まれる場合はエスケープされる', function() {
+    const html = renderer.render('```html#<template>の使い方\nhoge\n```');
+    const expect = '' +
+      '<section class="CG2-livecode">\n' +
+        '<header class="CG2-livecode__header">\n' +
+          '<div class="CG2-livecode__label">&lt;template&gt;の使い方</div>\n' +
+        '</header>\n' +
+        '<div class="CG2-livecode__body">' +
+          '<pre><code class="language-html">hoge\n</code></pre>\n' +
+        '</div>\n' +
+      '</section>\n';
+    assert(html === expect, `expected escaped HTML, got: ${html}`);
+  });
 });
 });
