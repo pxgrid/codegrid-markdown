@@ -5,6 +5,11 @@
   "type": "module",
   "main": "lib/index.js",
   "types": "index.d.ts",
+  "files": [
+    "bin",
+    "lib",
+    "index.d.ts"
+  ],
   "bin": {
     "cgmd": "bin/cgmd.js"
   },
