@@ -7,7 +7,7 @@ export default class CodeGridMarkdown {
  * Options for CodeGridMarkdown.
  *
  * Basically the same as MarkedOptions.
- * `renderer`, `headerIds`, `langPrefix` are used internally and cannot be overridden.
+ * `renderer` and `headerIds` are used internally and cannot be overridden.
  *
  * See also https://marked.js.org/using_advanced#options
  */
