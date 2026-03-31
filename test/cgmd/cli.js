@@ -1,9 +1,8 @@
 import { spawnSync } from 'node:child_process';
 import { describe, it } from 'node:test';
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
+const __dirname = import.meta.dirname;
 const CLI = join(__dirname, '../../bin/cgmd.js');
 
 function runCLI(args) {
