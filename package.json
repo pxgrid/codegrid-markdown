@@ -26,6 +26,7 @@
   "scripts": {
     "test": "node --enable-source-maps --import @power-assert/node --test",
     "test:watch": "node --enable-source-maps --import @power-assert/node --test --watch",
+    "test:update-snapshots": "node --enable-source-maps --import @power-assert/node --test --test-update-snapshots",
     "example": "node example/main.js > example/rendered.html"
   },
   "repository": {
