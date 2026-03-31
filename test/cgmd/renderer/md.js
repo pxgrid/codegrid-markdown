@@ -1,4 +1,4 @@
-import assert from 'node:assert/strict';
+import assert from 'node:assert';
 import { describe, it } from 'node:test';
 import { marked } from 'marked';
 import MD_Token from '../../../lib/tokenizer/token/md.js';
@@ -18,7 +18,7 @@ describe('#renderToken', function() {
   it('MD_Tokenをレンダリングできること', function() {
     const res = renderer.renderToken(token);
     const expect = '<p>a\nb\nc</p>\n';
-    assert.equal(res, expect);
+    assert(res === expect);
   });
 });
 
@@ -27,12 +27,12 @@ describe('#render', function() {
     const res1    = renderer.render('- foo\n- bar');
     const expect1 = marked('- foo\n- bar');
 
-    assert.equal(res1, expect1);
+    assert(res1 === expect1);
 
     const res2    = renderer.render('```\n.hoge {}\n```');
     const expect2 = marked('```\n.hoge {}\n```');
 
-    assert.equal(res2, expect2);
+    assert(res2 === expect2);
   });
 });
 });

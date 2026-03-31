@@ -13,9 +13,12 @@
     "marked": "^7.0.5",
     "pug": "^3.0.3"
   },
+  "devDependencies": {
+    "@power-assert/node": "^0.6.0"
+  },
   "scripts": {
-    "test": "node --test",
-    "test:watch": "node --test --watch",
+    "test": "node --enable-source-maps --import @power-assert/node --test",
+    "test:watch": "node --enable-source-maps --import @power-assert/node --test --watch",
     "example": "node example/main.js > example/rendered.html"
   },
   "repository": {

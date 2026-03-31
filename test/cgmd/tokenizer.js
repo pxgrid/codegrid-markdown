@@ -1,4 +1,4 @@
-import assert from 'node:assert/strict';
+import assert from 'node:assert';
 import { describe, it } from 'node:test';
 import Tokenizer from '../../lib/tokenizer.js';
 
@@ -15,13 +15,13 @@ describe('#tokenize', function() {
 
   it('mdとしてトークン化', function() {
     const tokens = Tokenizer.tokenize('# This is normal markdown.');
-    assert.equal(tokens.length, 1);
+    assert(tokens.length === 1);
     assert(tokens[0].isTypeMD());
   });
 
   it('cgmdとしてトークン化', function() {
     const tokens = Tokenizer.tokenize('[note]\n# This is cg markdown.\n[/note]');
-    assert.equal(tokens.length, 1);
+    assert(tokens.length === 1);
     assert(tokens[0].isTypeCGMD());
   });
 
@@ -31,7 +31,7 @@ describe('#tokenize', function() {
       '[note]\n# This is cg markdown.\n[/note]',
       '# This is normal markdown too.\n'
     ].join('\n'));
-    assert.equal(tokens.length, 3);
+    assert(tokens.length === 3);
     assert(tokens[0].isTypeMD());
     assert(tokens[1].isTypeCGMD());
     assert(tokens[2].isTypeMD());
@@ -62,7 +62,7 @@ describe('#tokenize', function() {
       '  npm run build',
       '```'
     ].join('\n'));
-    assert.equal(tokens.length, 1);
+    assert(tokens.length === 1);
     assert(tokens[0].isTypeMD());
   });
 
@@ -77,7 +77,7 @@ describe('#tokenize', function() {
       ');',
       '```'
     ].join('\n'));
-    assert.equal(tokens.length, 1);
+    assert(tokens.length === 1);
     assert(tokens[0].isTypeMD());
   });
 });

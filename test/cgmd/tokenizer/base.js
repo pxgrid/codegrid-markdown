@@ -1,4 +1,4 @@
-import assert from 'node:assert/strict';
+import assert from 'node:assert';
 import { describe, it } from 'node:test';
 import Token from '../../../lib/tokenizer/token/base.js';
 import TOKEN_TYPES from '../../../lib/tokenizer/token_types.js';
@@ -24,23 +24,23 @@ describe('#addBody', function() {
     token.addBody('foo');
 
     assert.notEqual(bodyLen, token.body.length);
-    assert.equal(token.body.length, 1);
+    assert(token.body.length === 1);
   });
 });
 
 describe('#isTypeMD', function() {
   it('正しく動くこと', function() {
     const token = new Token(TOKEN_TYPES.MD);
-    assert(token.isTypeMD() === true);
-    assert(token.isTypeCGMD() === false);
+    assert(token.isTypeMD());
+    assert(!token.isTypeCGMD());
   });
 });
 
 describe('#isTypeCGMD', function() {
   it('正しく動くこと', function() {
     const token = new Token(TOKEN_TYPES.CGMD);
-    assert(token.isTypeCGMD() === true);
-    assert(token.isTypeMD() === false);
+    assert(token.isTypeCGMD());
+    assert(!token.isTypeMD());
   });
 });
 

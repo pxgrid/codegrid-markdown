@@ -1,4 +1,4 @@
-import assert from 'node:assert/strict';
+import assert from 'node:assert';
 import { describe, it } from 'node:test';
 import Tokenizer from '../../lib/tokenizer.js';
 import Renderer from '../../lib/renderer.js';
@@ -16,7 +16,7 @@ describe('#render', function() {
         '<h1>h1</h1>\n' +
       '\n</div>\n';
     const token = Tokenizer.tokenize(md)[0];
-    assert.equal(renderer.render(token), html);
+    assert(renderer.render(token) === html);
   });
 
   it('mdトークン', function() {
@@ -24,7 +24,7 @@ describe('#render', function() {
     const html = '' +
       '<h1>h1</h1>\n';
     const token = Tokenizer.tokenize(md)[0];
-    assert.equal(renderer.render(token), html);
+    assert(renderer.render(token) === html);
   });
 });
 });

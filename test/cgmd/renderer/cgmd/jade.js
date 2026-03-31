@@ -1,4 +1,4 @@
-import assert from 'node:assert/strict';
+import assert from 'node:assert';
 import { describe, it } from 'node:test';
 import renderJade from '../../../../lib/renderer/cgmd/jade.js';
 
@@ -9,7 +9,7 @@ describe('#jade', function() {
   it('レンダリングできること', function() {
     const res = renderJade('.foo foo');
     const expect = '<div class="foo">foo</div>';
-    assert.equal(res, expect);
+    assert(res === expect);
   });
 });
 });
