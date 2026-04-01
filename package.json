@@ -31,7 +31,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:pxgrid/codegrid-markdown.git"
+    "url": "git+ssh://git@github.com/pxgrid/codegrid-markdown.git"
   },
   "keywords": [
     "markdown"
