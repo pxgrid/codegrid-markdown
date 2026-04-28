@@ -22,6 +22,14 @@ describe('#renderToken', function() {
   });
 });
 
+describe('#render (CJK punctuation)', function() {
+  it('CJK約物の直後の closing ** が正しく認識されること', function() {
+    const res = renderer.render('**foo（bar）**baz**qux**');
+    assert(res.includes('<strong>foo（bar）</strong>'), 'CJK約物で閉じるboldが壊れている');
+    assert(res.includes('<strong>qux</strong>'), '2つ目のboldが壊れている');
+  });
+});
+
 describe('#render', function() {
   it('markedと同じ内容でふつうのMarkdownをレンダリングできること', function() {
     const res1    = renderer.render('- foo\n- bar');
